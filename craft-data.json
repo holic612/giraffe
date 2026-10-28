@@ -1,0 +1,114 @@
+{
+  "app": "기린월드 수익계산기",
+  "version": 2,
+  "exportedAt": "2026-10-28T02:54:37.062Z",
+  "mode": "cook",
+  "theme": "light",
+  "unit": "DP",
+  "fee": 0,
+  "good": 95,
+  "ok": 85,
+  "intervalH": 3,
+  "sort": "pos",
+  "filter": "all",
+  "autoLoad": true,
+  "modes": {
+    "cook": {
+      "items": [
+        {
+          "id": "mvqaj1f7rn2g",
+          "name": "감자",
+          "min": 1,
+          "max": 2,
+          "yield": 1,
+          "price": 21,
+          "priceAt": 1793082590248,
+          "mats": [
+            {
+              "name": "1",
+              "qty": 1
+            },
+            {
+              "name": "2",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mvqaswv769i5",
+          "name": "고구마",
+          "min": 1,
+          "max": 10000,
+          "yield": 1,
+          "price": 8000,
+          "priceAt": 1793155672977,
+          "mats": [
+            {
+              "name": "1",
+              "qty": 2
+            },
+            {
+              "name": "2",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "id": "mvqatxrc6j96",
+          "name": "당근",
+          "min": 1,
+          "max": 2,
+          "yield": 1,
+          "price": 30,
+          "priceAt": 1793155685364,
+          "mats": [
+            {
+              "name": "1",
+              "qty": 1
+            },
+            {
+              "name": "2",
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "prices": {
+        "1": 5,
+        "2": 15
+      },
+      "cats": [
+        {
+          "id": "c-fish",
+          "name": "물고기",
+          "price": 2
+        },
+        {
+          "id": "c-crop",
+          "name": "작물",
+          "price": 2
+        }
+      ],
+      "matCat": {
+        "1": "c-fish",
+        "2": "c-crop"
+      },
+      "updated": 1793155685364,
+      "batchAt": 0
+    },
+    "alch": {
+      "items": [],
+      "prices": {},
+      "cats": [
+        {
+          "id": "c-tree",
+          "name": "나무",
+          "price": 0
+        }
+      ],
+      "matCat": {},
+      "updated": 0,
+      "batchAt": 0
+    }
+  }
+}

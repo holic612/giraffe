@@ -3115,7 +3115,7 @@ function enhAction(a, b) {
  주소·토큰은 이 기기에만 저장하고 JSON 내보내기에는 넣지 않아요. */
 const SH_NEED = 9;   // 이 계산기가 필요로 하는 Code.gs 버전
 const SHEET_KEY = 'craftProfitDash.sheet';
-const shDef = () => ({ url: '', token: '', nick: '', shared: true, sBase: null, sRev: -1, auto: true, pullOpen: true, truth: true, sent: { h: {}, p: {}, s: {} }, at: 0, msg: '' });
+const shDef = () => ({ url: '', token: '', nick: '', shared: true, first: false, sBase: null, sRev: -1, auto: true, pullOpen: true, truth: true, sent: { h: {}, p: {}, s: {} }, at: 0, msg: '' });
 function shLoad() {
   try { const o = JSON.parse(localStorage.getItem(SHEET_KEY)) || {}; const d = shDef(); Object.keys(d).forEach(k => { if (o[k] !== undefined) d[k] = o[k]; }); if (!d.sent || !d.sent.h) d.sent = { h: {}, p: {}, s: {} }; if (!d.sent.s) d.sent.s = {}; return d; }
   catch (e) { return shDef(); }
@@ -3345,7 +3345,7 @@ document.addEventListener('input', e => {
   const t = e.target; if (!t.dataset || t.dataset.role !== 'sh') return;
   const o = shLoad(), k = t.dataset.k;
   o[k] = t.type === 'checkbox' ? t.checked : t.value.trim();
-  if (k === 'url') { o.sent = { h: {}, p: {}, s: {} }; o.sBase = null; }   // 주소가 바뀌면 처음부터 다시 보내요
+  if (k === 'url' || k === 'token') { o.sent = { h: {}, p: {}, s: {} }; o.sBase = null; o.first = false; }   // 주소가 바뀌면 처음부터 다시 보내요
   shStore(o);
 });
 document.addEventListener('click', async e => {
@@ -3356,6 +3356,7 @@ document.addEventListener('click', async e => {
     shStatus('연결 확인 중…');
     try { const r = await shCall('GET', { action: 'ping' }); shStatus(r.version >= SH_NEED ? '✅ 연결됐어요 · 시트: ' + r.name : '⚠️ 연결은 됐는데 시트의 Apps Script가 예전 버전이에요 (' + r.name + '). 새 Code.gs를 붙여넣고 [배포 → 배포 관리 → ✏️ 편집 → 버전: 새 버전 → 배포]를 해주세요.', !(r.version >= SH_NEED)); }
     catch (err) { shStatus('❌ 연결하지 못했어요: ' + err.message, true); }
+    if (!shLoad().first && /^✅/.test(($('#shStatus') || {}).textContent || '')) { await shFirstPull(); shInit(true); shsInit(true); }   // 처음 연결이면 시트 데이터를 전부 한 번 가져와요
   } else if (a === 'sheetSend') {
     const o = shLoad(); o.sent = { h: {}, p: {}, s: {} }; shStore(o);   // 전부 다시 보내요 (같은 시각은 시트에서 덮어써서 중복되지 않아요)
     shStatus('보내는 중…'); await shSend(true);
@@ -3369,10 +3370,12 @@ async function shPoll() {
   const o = shLoad(); if (!(o.pullOpen || o.truth) || !o.url || !o.token || document.hidden || shEditing()) return;
   await shPullConf(true); if (o.truth) await shPullHistory(true); await shPullPrices(true);
 }
-function shInit() {
+let shInitDone = false;
+function shInit(skipPull) {
   const o = shLoad(); if (!o.url || !o.token) { shBadge(''); return; }
-  if (o.pullOpen || o.truth) shPullConf(true).then(() => shPullHistory(true)).then(() => shPullPrices(true));
+  if (!skipPull && (o.pullOpen || o.truth)) shPullConf(true).then(() => shPullHistory(true)).then(() => shPullPrices(true));
   if (o.auto) shSend(false);
+  if (shInitDone) return; shInitDone = true;
   setInterval(shPoll, SH_POLL_MIN * 60000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) shPoll(); });   // 탭으로 돌아오면 바로 확인
 }
@@ -3509,9 +3512,11 @@ async function shSync(manual) {
   } catch (e) { shsStatus('❌ 공유 재료·가격 동기화 실패: ' + e.message, true); }
   finally { shsBusy = false; if (shsDirty) shsQueue(); }
 }
-function shsInit() {
+let shsStarted = false;
+function shsInit(skipFirst) {
   if (!shsOn()) return;
-  shSync(false);
+  if (!skipFirst) shSync(false);
+  if (shsStarted) return; shsStarted = true;
   setInterval(() => { if (!document.hidden && shsOn()) shSync(false); }, SHS_POLL * 1000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) shSync(false); });
   document.addEventListener('focusout', () => { if (shsHold) setTimeout(() => { if (!shEditing()) shSync(false); }, 300); });
@@ -3529,6 +3534,27 @@ document.addEventListener('click', e => {
   const o = shLoad(); if (o.shared === false) { shsStatus('공유 동기화가 꺼져 있어요. 위 체크를 켜주세요.', true); return; }
   shsStatus('동기화 중…'); shSync(true);
 });
+
+/* 처음 연결하면 시트의 모든 데이터를 한 번 가져와요: 공유 데이터(완성품·재료·가격) → 예측 설정 → 시세 기록 → 최신 시세
+   (아이템이 먼저 있어야 시세를 이름으로 맞출 수 있어서 이 순서예요) */
+async function shFirstPull() {
+  const o = shLoad(); if (!o.url || !o.token) return;
+  shStatus('처음 연결이에요. 시트의 데이터를 모두 가져오는 중…');
+  try {
+    if (shsOn()) { const a = shLoad(); a.sBase = null; shStore(a); await shSync(true); }
+    await shPullConf(true); await shPullHistory(true); await shPullPrices(true);
+    const a = shLoad(); a.first = true; shStore(a);
+    const n = S.modes.cook.items.length + S.modes.alch.items.length;
+    shStatus(`✅ 처음 연결: 시트의 데이터를 모두 가져왔어요 · 아이템 ${n}개 (${shClock()})`);
+    toast('시트의 데이터를 모두 가져왔어요.');
+  } catch (e) { shStatus('❌ 처음 데이터를 가져오지 못했어요: ' + e.message, true); }
+}
+async function shBoot() {
+  const o = shLoad(); if (!o.url || !o.token) { shBadge(''); return; }
+  if (!o.first) { await shFirstPull(); shInit(true); shsInit(true); return; }
+  if (shsOn()) await shSync(false);   // 아이템이 먼저 있어야 시세를 맞출 수 있어서 공유 데이터부터
+  shInit(); shsInit(true);
+}
 /* ===== 알림: 시세 변동 시각 알려주기 (설정은 이 브라우저에만 저장돼요) ===== */
 const AL_KEY = KEY + '.alarm';
 const AL_SOUND_NAMES = { chime: '🎐 차임', bell: '🔔 종소리', ding: '🛎️ 딩동', coin: '🪙 코인', marimba: '🎶 마림바', harp: '🪕 하프', drop: '💧 물방울', fanfare: '🎺 팡파레', siren: '🚨 경보' };
@@ -3975,7 +4001,7 @@ function afterManagerChange() { save(); renderAll(); renderManager(); }
 
 
 /* ===== 위키 완성품·재료 (https://giraffemc.com/wiki/life/proficiency/…) =====
- 재료 수량은 위키 표 그대로(한 작업 기준으로 봤어요). 원가·시세는 위키에 없어서 직접 입력해야 해요. */
+ 재료 수량은 위키 표 그대로(한 작업 기준으로 봤어요). */
 const WIKI_COOK = (() => {
   const d = [
     [1, '감자 수프', '', [['감자', 8], ['당근', 4]], []],
@@ -4583,7 +4609,7 @@ renderAll();
 setInterval(patchAll, 30000);
 setTimeout(maybeTune, 2500); shBadgeInit(); alInit();   // 하루에 한 번 자동 조정 (기록이 충분한 요리만)
 // 열 때마다 craft-data.json 확인(있으면 불러옴) → 그 다음에 시트와 맞춰요. (파일이 시트 기록을 덮어쓰지 않게 순서를 지켜요)
-(shsOn() && shLoad().sBase ? Promise.resolve(false) : loadDataFile().catch(() => false)).then(() => setTimeout(() => { shInit(); shsInit(); }, 200));
+(shsOn() && shLoad().sBase ? Promise.resolve(false) : loadDataFile().catch(() => false)).then(() => setTimeout(shBoot, 200));
 </script>
 </body>
 </html>

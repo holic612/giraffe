@@ -1,9 +1,9 @@
 {
   "app": "기린월드 수익계산기",
   "version": 3,
-  "exportedAt": "2026-11-11T02:26:47.520Z",
-  "mode": "cook",
-  "tab": "cook",
+  "exportedAt": "2026-11-11T03:08:52.750Z",
+  "mode": "alch",
+  "tab": "alch",
   "trade": {
     "job": "miner",
     "stage": {
@@ -20,7 +20,7 @@
   "unit": "쿠키",
   "fee": 0,
   "ufee": 3,
-  "sellHide": false,
+  "sellHide": true,
   "enh": {
     "tool": "cook",
     "from": 0,
@@ -64,21 +64,1168 @@
   },
   "modes": {
     "cook": {
-      "items": [],
+      "items": [
+        {
+          "id": "mwbjb4cejmk2",
+          "name": "감자 수프",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 1,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "감자",
+              "qty": 8
+            },
+            {
+              "name": "당근",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf0gip",
+          "name": "호박죽",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 1,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "호박",
+              "qty": 2
+            },
+            {
+              "name": "밀",
+              "qty": 4
+            },
+            {
+              "name": "사탕수수",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf75qe",
+          "name": "송어 버터구이",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 1,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "송어",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "양파",
+              "qty": 1
+            },
+            {
+              "name": "상추",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf3vq1",
+          "name": "무조림",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 1,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "고등어",
+              "qty": 1
+            },
+            {
+              "name": "당근",
+              "qty": 16
+            },
+            {
+              "name": "무",
+              "qty": 1
+            },
+            {
+              "name": "양파",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfh0z4",
+          "name": "우렁 쌈밥",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 1,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "우렁이",
+              "qty": 1
+            },
+            {
+              "name": "밀",
+              "qty": 8
+            },
+            {
+              "name": "상추",
+              "qty": 1
+            },
+            {
+              "name": "양파",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfk20n",
+          "name": "옥수수전",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "강꼬치고기",
+              "qty": 1
+            },
+            {
+              "name": "밀",
+              "qty": 8
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            },
+            {
+              "name": "상추",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfn7yo",
+          "name": "피라니아 튀김",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "피라니아",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            },
+            {
+              "name": "무",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfmicd",
+          "name": "비트 샐러드",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "깃대돔",
+              "qty": 1
+            },
+            {
+              "name": "비트",
+              "qty": 8
+            },
+            {
+              "name": "상추",
+              "qty": 4
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfjkrr",
+          "name": "해마 맑은국",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "해마",
+              "qty": 1
+            },
+            {
+              "name": "당근",
+              "qty": 16
+            },
+            {
+              "name": "무",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfc5c1",
+          "name": "애호박볶음",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "오징어",
+              "qty": 1
+            },
+            {
+              "name": "당근",
+              "qty": 16
+            },
+            {
+              "name": "애호박",
+              "qty": 4
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfe87s",
+          "name": "오이냉국",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "날치",
+              "qty": 1
+            },
+            {
+              "name": "사탕수수",
+              "qty": 8
+            },
+            {
+              "name": "오이",
+              "qty": 4
+            },
+            {
+              "name": "상추",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf39ho",
+          "name": "양배추찜",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "거북복",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "양배추",
+              "qty": 4
+            },
+            {
+              "name": "무",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cficb4",
+          "name": "레몬구이",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "개복치",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "레몬",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cflzk5",
+          "name": "호박전",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "배스",
+              "qty": 1
+            },
+            {
+              "name": "호박",
+              "qty": 4
+            },
+            {
+              "name": "애호박",
+              "qty": 4
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfggc3",
+          "name": "오이 샐러드",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "연어",
+              "qty": 1
+            },
+            {
+              "name": "비트",
+              "qty": 8
+            },
+            {
+              "name": "오이",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfpyie",
+          "name": "양배추전골",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "비단잉어",
+              "qty": 1
+            },
+            {
+              "name": "당근",
+              "qty": 16
+            },
+            {
+              "name": "양배추",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cffe7o",
+          "name": "레몬 세비체",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "쏠배감펭",
+              "qty": 1
+            },
+            {
+              "name": "달콤한 열매",
+              "qty": 8
+            },
+            {
+              "name": "레몬",
+              "qty": 4
+            },
+            {
+              "name": "상추",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfou91",
+          "name": "레몬에이드",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 10,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "사탕수수",
+              "qty": 8
+            },
+            {
+              "name": "레몬",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cftfbl",
+          "name": "쑤기미 매운탕",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "쑤기미",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "고추",
+              "qty": 4
+            },
+            {
+              "name": "무",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf6ka0",
+          "name": "토마토 파스타",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "왕게",
+              "qty": 1
+            },
+            {
+              "name": "밀",
+              "qty": 8
+            },
+            {
+              "name": "토마토",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfwxlv",
+          "name": "고구마 조림",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "해삼",
+              "qty": 1
+            },
+            {
+              "name": "당근",
+              "qty": 16
+            },
+            {
+              "name": "고구마",
+              "qty": 4
+            },
+            {
+              "name": "양배추",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfeg6y",
+          "name": "키위 소스 구이",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "철갑상어",
+              "qty": 1
+            },
+            {
+              "name": "달콤한 열매",
+              "qty": 8
+            },
+            {
+              "name": "키위",
+              "qty": 4
+            },
+            {
+              "name": "레몬",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfmvj9",
+          "name": "청새치 스테이크",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "청새치",
+              "qty": 1
+            },
+            {
+              "name": "감자",
+              "qty": 16
+            },
+            {
+              "name": "토마토",
+              "qty": 4
+            },
+            {
+              "name": "오이",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cf0xbf",
+          "name": "고추튀김",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "복어",
+              "qty": 1
+            },
+            {
+              "name": "밀",
+              "qty": 8
+            },
+            {
+              "name": "고추",
+              "qty": 4
+            },
+            {
+              "name": "옥수수",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfq92h",
+          "name": "키위 카르파초",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "실러캔스",
+              "qty": 1
+            },
+            {
+              "name": "비트",
+              "qty": 8
+            },
+            {
+              "name": "키위",
+              "qty": 4
+            },
+            {
+              "name": "양파",
+              "qty": 4
+            }
+          ]
+        },
+        {
+          "id": "mwbjb4cfm7dp",
+          "name": "바다거북 수프",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 20,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "바다거북",
+              "qty": 1
+            },
+            {
+              "name": "호박",
+              "qty": 4
+            },
+            {
+              "name": "고구마",
+              "qty": 4
+            },
+            {
+              "name": "고추",
+              "qty": 4
+            }
+          ]
+        }
+      ],
       "prices": {},
       "cats": [
         {
-          "id": "c-fish",
-          "name": "물고기",
-          "price": 0
-        },
-        {
           "id": "c-crop",
           "name": "작물",
-          "price": 0
+          "price": 100
+        },
+        {
+          "id": "mwbjb4ce8pgm",
+          "name": "물고기",
+          "price": 200
+        },
+        {
+          "id": "mwbjb4cedy3v",
+          "name": "바닐라",
+          "price": 50
         }
       ],
-      "matCat": {},
+      "matCat": {
+        "감자": "mwbjb4cedy3v",
+        "당근": "mwbjb4cedy3v",
+        "호박": "mwbjb4cedy3v",
+        "밀": "mwbjb4cedy3v",
+        "사탕수수": "mwbjb4cedy3v",
+        "송어": "mwbjb4ce8pgm",
+        "고등어": "mwbjb4ce8pgm",
+        "우렁이": "mwbjb4ce8pgm",
+        "강꼬치고기": "mwbjb4ce8pgm",
+        "피라니아": "mwbjb4ce8pgm",
+        "깃대돔": "mwbjb4ce8pgm",
+        "비트": "mwbjb4cedy3v",
+        "해마": "mwbjb4ce8pgm",
+        "오징어": "mwbjb4ce8pgm",
+        "날치": "mwbjb4ce8pgm",
+        "거북복": "mwbjb4ce8pgm",
+        "개복치": "mwbjb4ce8pgm",
+        "배스": "mwbjb4ce8pgm",
+        "연어": "mwbjb4ce8pgm",
+        "비단잉어": "mwbjb4ce8pgm",
+        "쏠배감펭": "mwbjb4ce8pgm",
+        "달콤한 열매": "mwbjb4cedy3v",
+        "쑤기미": "mwbjb4ce8pgm",
+        "왕게": "mwbjb4ce8pgm",
+        "해삼": "mwbjb4ce8pgm",
+        "철갑상어": "mwbjb4ce8pgm",
+        "청새치": "mwbjb4ce8pgm",
+        "복어": "mwbjb4ce8pgm",
+        "실러캔스": "mwbjb4ce8pgm",
+        "바다거북": "mwbjb4ce8pgm",
+        "양파": "c-crop",
+        "상추": "c-crop",
+        "무": "c-crop",
+        "옥수수": "c-crop",
+        "애호박": "c-crop",
+        "오이": "c-crop",
+        "양배추": "c-crop",
+        "레몬": "c-crop",
+        "고추": "c-crop",
+        "토마토": "c-crop",
+        "고구마": "c-crop",
+        "키위": "c-crop"
+      },
       "updated": 0,
       "batchAt": 0,
       "spec": {
@@ -224,16 +1371,789 @@
       }
     },
     "alch": {
-      "items": [],
+      "items": [
+        {
+          "id": "mwbj96lkhc4t",
+          "name": "이슬의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "사탕수수",
+              "qty": 4
+            },
+            {
+              "name": "수박 조각",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkeaus",
+          "name": "산들바람의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "비트",
+              "qty": 8
+            },
+            {
+              "name": "달콤한 열매",
+              "qty": 4
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkonln",
+          "name": "활력의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "참나무 심재",
+              "qty": 1
+            },
+            {
+              "name": "강화된 다이아몬드 이상",
+              "qty": 1
+            },
+            {
+              "name": "꿀병",
+              "qty": 2
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkbazv",
+          "name": "풍요의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "자작나무 심재",
+              "qty": 1
+            },
+            {
+              "name": "강화된 구리 이상",
+              "qty": 1
+            },
+            {
+              "name": "수박 조각",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lk7law",
+          "name": "물결의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "가문비나무 심재",
+              "qty": 1
+            },
+            {
+              "name": "강화된 청금석 이상",
+              "qty": 1
+            },
+            {
+              "name": "말린 켈프",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lk21mo",
+          "name": "숲의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "참나무 심재",
+              "qty": 1
+            },
+            {
+              "name": "강화된 레드스톤 이상",
+              "qty": 1
+            },
+            {
+              "name": "사과",
+              "qty": 2
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lka2ul",
+          "name": "화덕의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "자작나무 심재",
+              "qty": 1
+            },
+            {
+              "name": "강화된 석탄 이상",
+              "qty": 1
+            },
+            {
+              "name": "설탕",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkpasy",
+          "name": "흐름의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "정글나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 다이아몬드",
+              "qty": 1
+            },
+            {
+              "name": "발광 열매",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkx5nw",
+          "name": "파도의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "아카시아나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 청금석",
+              "qty": 1
+            },
+            {
+              "name": "먹물 주머니",
+              "qty": 4
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lk718q",
+          "name": "나이테의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "짙은 참나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 구리",
+              "qty": 1
+            },
+            {
+              "name": "거미 눈",
+              "qty": 1
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkjxnl",
+          "name": "볼칸의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "짙은 참나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 레드스톤",
+              "qty": 1
+            },
+            {
+              "name": "화약",
+              "qty": 1
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkahng",
+          "name": "담금질의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "아카시아나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 석탄",
+              "qty": 1
+            },
+            {
+              "name": "숯",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lk101x",
+          "name": "미식의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "정글나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 석탄",
+              "qty": 1
+            },
+            {
+              "name": "코코아 콩",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkjiru",
+          "name": "결실의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "벚나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 구리",
+              "qty": 1
+            },
+            {
+              "name": "뼛가루",
+              "qty": 2
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkfonj",
+          "name": "제련의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "맹그로브나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 레드스톤",
+              "qty": 1
+            },
+            {
+              "name": "부싯돌",
+              "qty": 4
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkof6d",
+          "name": "지혜의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "창백한 참나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 다이아몬드",
+              "qty": 1
+            },
+            {
+              "name": "종이",
+              "qty": 8
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "id": "mwbj96lkioxt",
+          "name": "토트의 비약",
+          "bases": [
+            0,
+            0,
+            0
+          ],
+          "min": 0,
+          "max": 0,
+          "yield": 1,
+          "lvl": 0,
+          "gp": [
+            null,
+            null,
+            null
+          ],
+          "priceAt": 0,
+          "fx": "",
+          "up": [
+            null,
+            null,
+            null
+          ],
+          "mats": [
+            {
+              "name": "맹그로브나무 심재",
+              "qty": 3
+            },
+            {
+              "name": "순수한 석탄",
+              "qty": 1
+            },
+            {
+              "name": "자수정 조각",
+              "qty": 2
+            },
+            {
+              "name": "물병",
+              "qty": 1
+            }
+          ]
+        }
+      ],
       "prices": {},
       "cats": [
         {
-          "id": "c-tree",
-          "name": "나무",
-          "price": 0
+          "id": "mwbj96lka9zz",
+          "name": "심재",
+          "price": 150
+        },
+        {
+          "id": "mwbj96lklh53",
+          "name": "광물",
+          "price": 150
+        },
+        {
+          "id": "mwbjd6qa3k6e",
+          "name": "바닐라",
+          "price": 50
         }
       ],
-      "matCat": {},
+      "matCat": {
+        "참나무 심재": "mwbj96lka9zz",
+        "강화된 다이아몬드 이상": "mwbj96lklh53",
+        "자작나무 심재": "mwbj96lka9zz",
+        "강화된 구리 이상": "mwbj96lklh53",
+        "가문비나무 심재": "mwbj96lka9zz",
+        "강화된 청금석 이상": "mwbj96lklh53",
+        "강화된 레드스톤 이상": "mwbj96lklh53",
+        "강화된 석탄 이상": "mwbj96lklh53",
+        "정글나무 심재": "mwbj96lka9zz",
+        "순수한 다이아몬드": "mwbj96lklh53",
+        "아카시아나무 심재": "mwbj96lka9zz",
+        "순수한 청금석": "mwbj96lklh53",
+        "짙은 참나무 심재": "mwbj96lka9zz",
+        "순수한 구리": "mwbj96lklh53",
+        "순수한 레드스톤": "mwbj96lklh53",
+        "순수한 석탄": "mwbj96lklh53",
+        "벚나무 심재": "mwbj96lka9zz",
+        "맹그로브나무 심재": "mwbj96lka9zz",
+        "창백한 참나무 심재": "mwbj96lka9zz",
+        "사탕수수": "mwbjd6qa3k6e",
+        "수박 조각": "mwbjd6qa3k6e",
+        "물병": "mwbjd6qa3k6e",
+        "비트": "mwbjd6qa3k6e",
+        "달콤한 열매": "mwbjd6qa3k6e",
+        "꿀병": "mwbjd6qa3k6e",
+        "말린 켈프": "mwbjd6qa3k6e",
+        "사과": "mwbjd6qa3k6e",
+        "설탕": "mwbjd6qa3k6e",
+        "발광 열매": "mwbjd6qa3k6e",
+        "먹물 주머니": "mwbjd6qa3k6e",
+        "거미 눈": "mwbjd6qa3k6e",
+        "화약": "mwbjd6qa3k6e",
+        "숯": "mwbjd6qa3k6e",
+        "코코아 콩": "mwbjd6qa3k6e",
+        "뼛가루": "mwbjd6qa3k6e",
+        "부싯돌": "mwbjd6qa3k6e",
+        "종이": "mwbjd6qa3k6e",
+        "자수정 조각": "mwbjd6qa3k6e"
+      },
       "updated": 0,
       "batchAt": 0,
       "spec": {

@@ -1,100 +1,227 @@
 {
   "app": "기린월드 수익계산기",
-  "version": 2,
-  "exportedAt": "2026-10-28T02:54:37.062Z",
+  "version": 3,
+  "exportedAt": "2026-11-11T02:26:47.520Z",
   "mode": "cook",
-  "theme": "light",
-  "unit": "DP",
+  "tab": "cook",
+  "trade": {
+    "job": "miner",
+    "stage": {
+      "miner": 1,
+      "farmer": 1,
+      "fisher": 1,
+      "carp": 1,
+      "cook": 1,
+      "alch": 1
+    },
+    "bargain": 0
+  },
+  "theme": "dark",
+  "unit": "쿠키",
   "fee": 0,
-  "good": 95,
-  "ok": 85,
+  "ufee": 3,
+  "sellHide": false,
+  "enh": {
+    "tool": "cook",
+    "from": 0,
+    "to": 10,
+    "pity": true,
+    "prot": true,
+    "amp": false,
+    "ampPct": 5,
+    "pEss": 0,
+    "pAmp": 0,
+    "pProt": 0
+  },
+  "good": 70,
+  "ok": 40,
   "intervalH": 3,
-  "sort": "pos",
+  "lowPct": 10,
+  "highPct": 15,
+  "sort": "rank",
   "filter": "all",
   "autoLoad": true,
+  "editMode": false,
+  "useGrades": true,
+  "autoTune": true,
+  "prepSets": 27,
+  "basis": "now",
+  "pred": {
+    "halfLifeDays": 3,
+    "highPos": 0.7,
+    "lowPos": 0.3,
+    "minZone": 3,
+    "fullZone": 8,
+    "mrk": 0.35,
+    "todk": 0.5,
+    "edgeHi": 0.85,
+    "edgeLo": 0.15,
+    "shiftRatio": 1.8,
+    "crossMin": 8,
+    "crossFull": 16,
+    "crossShrink": 0.6,
+    "damp": 1
+  },
   "modes": {
     "cook": {
-      "items": [
-        {
-          "id": "mvqaj1f7rn2g",
-          "name": "감자",
-          "min": 1,
-          "max": 2,
-          "yield": 1,
-          "price": 21,
-          "priceAt": 1793082590248,
-          "mats": [
-            {
-              "name": "1",
-              "qty": 1
-            },
-            {
-              "name": "2",
-              "qty": 1
-            }
-          ]
-        },
-        {
-          "id": "mvqaswv769i5",
-          "name": "고구마",
-          "min": 1,
-          "max": 10000,
-          "yield": 1,
-          "price": 8000,
-          "priceAt": 1793155672977,
-          "mats": [
-            {
-              "name": "1",
-              "qty": 2
-            },
-            {
-              "name": "2",
-              "qty": 2
-            }
-          ]
-        },
-        {
-          "id": "mvqatxrc6j96",
-          "name": "당근",
-          "min": 1,
-          "max": 2,
-          "yield": 1,
-          "price": 30,
-          "priceAt": 1793155685364,
-          "mats": [
-            {
-              "name": "1",
-              "qty": 1
-            },
-            {
-              "name": "2",
-              "qty": 1
-            }
-          ]
-        }
-      ],
-      "prices": {
-        "1": 5,
-        "2": 15
-      },
+      "items": [],
+      "prices": {},
       "cats": [
         {
           "id": "c-fish",
           "name": "물고기",
-          "price": 2
+          "price": 0
         },
         {
           "id": "c-crop",
           "name": "작물",
-          "price": 2
+          "price": 0
         }
       ],
-      "matCat": {
-        "1": "c-fish",
-        "2": "c-crop"
+      "matCat": {},
+      "updated": 0,
+      "batchAt": 0,
+      "spec": {
+        "tool": 0,
+        "level": 0,
+        "dexHave": 0,
+        "dexMax": 0,
+        "trim": 0,
+        "uptime": -1,
+        "workOn": true,
+        "base": null
       },
-      "updated": 1793155685364,
-      "batchAt": 0
+      "model": {
+        "placeholder": true,
+        "base": {
+          "p": [
+            90,
+            8,
+            2
+          ],
+          "dbl": 0,
+          "save": 0,
+          "fail": 30
+        },
+        "factors": [
+          {
+            "id": "tool",
+            "stat": "tool",
+            "label": "도구 강화",
+            "unit": "강",
+            "from": 0,
+            "per": {
+              "p": [
+                -2.857,
+                1.286,
+                1.571
+              ],
+              "dbl": 1.714,
+              "save": 1.2,
+              "fail": -2.5
+            },
+            "steps": [
+              {
+                "at": 10,
+                "add": {
+                  "p": [
+                    -2,
+                    1,
+                    1
+                  ],
+                  "dbl": 5,
+                  "save": 3,
+                  "fail": -5
+                }
+              }
+            ]
+          },
+          {
+            "id": "level",
+            "stat": "level",
+            "label": "레벨",
+            "unit": "Lv.",
+            "from": 0,
+            "per": {
+              "p": [
+                -0.281,
+                0.156,
+                0.125
+              ],
+              "dbl": 0,
+              "save": 0.1,
+              "fail": -0.15
+            },
+            "steps": []
+          },
+          {
+            "id": "dex",
+            "stat": "dexPct",
+            "label": "도감",
+            "unit": "%",
+            "from": 0,
+            "per": {
+              "p": [
+                -0.238,
+                0.095,
+                0.143
+              ],
+              "dbl": 0,
+              "save": 0.1,
+              "fail": -0.1
+            },
+            "steps": []
+          }
+        ]
+      },
+      "hist": {},
+      "predLog": {},
+      "tune": {},
+      "sell": {
+        "ch": [
+          0,
+          0,
+          0
+        ],
+        "stage": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "pred": {
+        "halfLifeDays": 3,
+        "highPos": 0.7,
+        "lowPos": 0.3,
+        "minZone": 3,
+        "fullZone": 8,
+        "mrk": 0.35,
+        "todk": 0.5,
+        "edgeHi": 0.85,
+        "edgeLo": 0.15,
+        "shiftRatio": 1.8,
+        "crossMin": 8,
+        "crossFull": 16,
+        "crossShrink": 0.6,
+        "damp": 1
+      }
     },
     "alch": {
       "items": [],
@@ -108,7 +235,148 @@
       ],
       "matCat": {},
       "updated": 0,
-      "batchAt": 0
+      "batchAt": 0,
+      "spec": {
+        "tool": 0,
+        "level": 0,
+        "dexHave": 0,
+        "dexMax": 0,
+        "trim": 0,
+        "uptime": -1,
+        "workOn": true,
+        "base": null
+      },
+      "model": {
+        "placeholder": true,
+        "base": {
+          "p": [
+            90,
+            8,
+            2
+          ],
+          "dbl": 0,
+          "save": 0,
+          "fail": 30
+        },
+        "factors": [
+          {
+            "id": "tool",
+            "stat": "tool",
+            "label": "도구 강화",
+            "unit": "강",
+            "from": 0,
+            "per": {
+              "p": [
+                -2.857,
+                1.286,
+                1.571
+              ],
+              "dbl": 1.714,
+              "save": 1.2,
+              "fail": -2.5
+            },
+            "steps": [
+              {
+                "at": 10,
+                "add": {
+                  "p": [
+                    -2,
+                    1,
+                    1
+                  ],
+                  "dbl": 5,
+                  "save": 3,
+                  "fail": -5
+                }
+              }
+            ]
+          },
+          {
+            "id": "level",
+            "stat": "level",
+            "label": "레벨",
+            "unit": "Lv.",
+            "from": 0,
+            "per": {
+              "p": [
+                -0.281,
+                0.156,
+                0.125
+              ],
+              "dbl": 0,
+              "save": 0.1,
+              "fail": -0.15
+            },
+            "steps": []
+          },
+          {
+            "id": "dex",
+            "stat": "dexPct",
+            "label": "도감",
+            "unit": "%",
+            "from": 0,
+            "per": {
+              "p": [
+                -0.238,
+                0.095,
+                0.143
+              ],
+              "dbl": 0,
+              "save": 0.1,
+              "fail": -0.1
+            },
+            "steps": []
+          }
+        ]
+      },
+      "hist": {},
+      "predLog": {},
+      "tune": {},
+      "sell": {
+        "ch": [
+          0,
+          0,
+          0
+        ],
+        "stage": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "pred": {
+        "halfLifeDays": 3,
+        "highPos": 0.7,
+        "lowPos": 0.3,
+        "minZone": 3,
+        "fullZone": 8,
+        "mrk": 0.35,
+        "todk": 0.5,
+        "edgeHi": 0.85,
+        "edgeLo": 0.15,
+        "shiftRatio": 1.8,
+        "crossMin": 8,
+        "crossFull": 16,
+        "crossShrink": 0.6,
+        "damp": 1
+      }
     }
   }
 }

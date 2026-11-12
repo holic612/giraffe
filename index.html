@@ -1418,8 +1418,7 @@ details.why2 summary{color:var(--accent-ink)}
       <button type="button" data-sec="sell">판매 가격</button>
       <button type="button" data-sec="manage">계산기 관리</button>
       <button type="button" data-sec="alarm">알림</button>
-      <button type="button" data-sec="data">데이터</button>
-      <button type="button" data-sec="reset">초기화</button>
+      <button type="button" data-sec="data">시트</button>
     </nav>
 
     <section class="set-sec" data-sec="gen">
@@ -1479,7 +1478,13 @@ details.why2 summary{color:var(--accent-ink)}
     </section>
 
     <section class="set-sec" data-sec="data">
-      <h3>데이터 관리</h3><p>백업, 구글 시트, GitHub 저장을 설정해요.</p>
+      <h3>구글 시트</h3><p>열 때와 새로고침할 때마다 시트의 데이터를 먼저 받아와요.</p>
+      <label class="f">내 별명 (시트에 누가 고쳤는지 남겨요 · 선택)</label>
+      <input id="shNick" data-role="shs" data-k="nick" maxlength="20" autocomplete="off" placeholder="예: 철수">
+      <div class="sh-status" id="shSharedStatus"></div>
+    <div id="shStatus2" class="sh-status"></div>
+    <div class="sh-btns"><button class="btn" type="button" data-action="reloadAll">시트에서 다시 불러오기</button></div>
+    <div hidden>
     <label class="f">데이터 백업</label>
     <p><code>craft-data.json</code>을 <code>index.html</code>과 같은 위치에 두면 열 때 자동으로 불러와요. 파일 선택은 다른 위치의 파일을 임시로 불러올 때만 쓰세요.</p>
     <div class="two">
@@ -1496,9 +1501,6 @@ details.why2 summary{color:var(--accent-ink)}
       <label class="check"><input type="checkbox" id="shPullOpen" data-role="sh" data-k="pullOpen"> 시트에서 예측 설정·시세 자동으로 받기 (열 때 + 5분마다)</label>
       <label class="check"><input type="checkbox" id="shTruth" data-role="sh" data-k="truth"> 시트를 시세 기록의 원본으로 쓰기 <small style="color:var(--dim)">(받을 때 계산기 기록을 시트 내용으로 교체)</small></label>
       <label class="check"><input type="checkbox" id="shShared" data-role="shs" data-k="shared"> 재료·출처·가격, 강화 재료 가격을 모두와 공유 <small style="color:var(--dim)">(고치면 시트에 반영, 다른 사람이 고친 건 20초 안에 자동 반영)</small></label>
-      <label class="f">내 별명 (시트에 누가 고쳤는지 남겨요 · 선택)</label>
-      <input id="shNick" data-role="shs" data-k="nick" maxlength="20" autocomplete="off" placeholder="예: 철수">
-      <div class="sh-status" id="shSharedStatus"></div>
       <div class="sh-btns">
         <button class="btn" type="button" data-action="sheetShared">공유 재료 지금 동기화</button>
         <button class="btn" type="button" data-action="sheetTest">연결 테스트</button>
@@ -1520,14 +1522,8 @@ details.why2 summary{color:var(--accent-ink)}
       <p style="margin-top:8px">토큰: GitHub → Settings → Developer settings → Fine-grained tokens → 이 저장소만 선택 → Contents를 <b>Read and write</b>로. 토큰은 백업 파일에 들어가지 않아요.</p>
     </details>
     <input type="file" id="importFile" accept="application/json,.json" hidden>
-    </section>
-
-    <section class="set-sec" data-sec="reset">
-      <h3>초기화</h3><p>되돌릴 수 없어요. 먼저 데이터 내보내기로 백업해 두세요.</p>
-      <div class="danger-zone">
-    <button class="btn danger block"  data-action="reset" type="button">현재 직업 데이터 초기화</button>
-      </div>
-    </section>
+    </div>
+  </section>
 
     <div class="modal-foot"><button class="btn primary" data-action="closeModal" type="button">닫기</button></div>
   </div>
@@ -3257,7 +3253,7 @@ function shBadgeInit() {
 }
 function shStatus(msg, bad) {
   const o = shLoad(); o.msg = msg; o.at = Date.now(); shStore(o);
-  const el = $('#shStatus'); if (el) { el.textContent = msg; el.className = 'sh-status' + (bad ? ' bad' : ''); }
+  ['#shStatus', '#shStatus2'].forEach(q => { const el = $(q); if (el) { el.textContent = msg; el.className = 'sh-status' + (bad ? ' bad' : ''); } });
 }
 async function shCall(method, params, body) {
   const o = shLoad();
@@ -3458,7 +3454,7 @@ function shBackfill(M, it) {
 function shFill() {
   const o = shLoad();
   $('#shUrl').value = o.url; $('#shToken').value = o.token; $('#shAuto').checked = !!o.auto; $('#shPullOpen').checked = !!o.pullOpen; $('#shTruth').checked = !!o.truth;
-  const el = $('#shStatus'); el.textContent = o.msg || '아직 연결하지 않았어요.'; el.className = 'sh-status';
+  ['#shStatus', '#shStatus2'].forEach(q => { const el = $(q); if (el) { el.textContent = o.msg || '아직 연결하지 않았어요.'; el.className = 'sh-status'; } });
   $('#shBox').open = !!(o.url && o.token); if (typeof shsFill === 'function') shsFill();
 }
 document.addEventListener('input', e => {
@@ -3480,7 +3476,8 @@ document.addEventListener('click', async e => {
   } else if (a === 'sheetSend') {
     const o = shLoad(); o.sent = { h: {}, p: {}, s: {} }; shStore(o);   // 전부 다시 보내요 (같은 시각은 시트에서 덮어써서 중복되지 않아요)
     shStatus('보내는 중…'); await shSend(true);
-  } else if (a === 'sheetConf') { shStatus('받는 중…'); await shPullConf(false); }
+  } else if (a === 'reloadAll') { location.reload(); }
+  else if (a === 'sheetConf') { shStatus('받는 중…'); await shPullConf(false); }
   else if (a === 'sheetPrice') { shStatus('받는 중…'); await shPullPrices(false); }
   else if (a === 'sheetHist') { shStatus('받는 중…'); await shPullHistory(false); }
 });
@@ -4727,7 +4724,8 @@ renderAll();
 setInterval(patchAll, 30000);
 setTimeout(maybeTune, 2500); shBadgeInit(); alInit();   // 하루에 한 번 자동 조정 (기록이 충분한 요리만)
 // 열 때마다 craft-data.json 확인(있으면 불러옴) → 그 다음에 시트와 맞춰요. (파일이 시트 기록을 덮어쓰지 않게 순서를 지켜요)
-(shsOn() && shLoad().sBase ? Promise.resolve(false) : loadDataFile().catch(() => false)).then(() => setTimeout(shBoot, 200));
+// 시트가 연결돼 있으면 열 때마다 시트 데이터를 가장 먼저 받아와요 (파일은 시트가 없을 때만 사용)
+(shReady() ? Promise.resolve(false) : loadDataFile().catch(() => false)).then(() => setTimeout(shBoot, 200));
 </script>
 </body>
 </html>

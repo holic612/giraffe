@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>기린월드 수익계산기</title>
+<title>이월드 수익계산기</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.20/400.css">
@@ -566,7 +566,7 @@ details.acc .av small{display:block;font-size:10.5px;color:var(--dim);font-weigh
 }
 /*DS-START*/
 /* =====================================================================
-   디자인 시스템 (기린월드 수익계산기)
+   디자인 시스템 (이월드 수익계산기)
    - 기존 클래스는 그대로 두고, 여기서 토큰·공통 규격·화면별 모양을 덮어써요.
    ===================================================================== */
 :root{
@@ -1186,11 +1186,6 @@ body[data-theme="light"] .spk.on .cb,body[data-theme="light"] .lv.on .cb{color:#
 .lv em{font-style:normal;margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
 .lv.on{color:var(--text)} .lv.on em{color:var(--accent-ink)}
 .lv input{position:absolute;opacity:0;pointer-events:none}
-[data-tip]{position:relative}
-[data-tip]::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;width:max-content;max-width:260px;white-space:pre-line;background:var(--raised);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;font-size:12px;line-height:1.5;color:var(--dim);font-weight:400;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .16s var(--ease),transform .16s var(--ease)}
-[data-tip]:hover::after,[data-tip]:focus::after,[data-tip]:focus-within::after{opacity:1;transform:none}
-.lv[data-tip]::after{left:auto;right:0}
-.pc[data-tip]:hover>.spl .lv:hover::after{opacity:1}
 .tscroll{overflow-x:auto;margin:0 -4px}
 .et{width:100%;border-collapse:collapse;font-size:13px}
 .et th{font-weight:400;color:var(--muted);text-align:right;padding:4px 8px;font-size:12px;white-space:nowrap}
@@ -1219,6 +1214,7 @@ details.spc.fold>summary small{margin-left:auto;font-size:12px;font-weight:400;c
 .foldbody{padding:0 16px 16px}
 .subsec{padding-top:16px;border-top:1px solid var(--line);margin-top:16px}.subsec:first-child{border-top:0;margin-top:0;padding-top:0}
 .subsec>h3{font-size:14px;font-weight:600;margin:0 0 12px}
+.pbar .pfail{background:var(--raised);color:var(--muted)}
 /*DS-END*/
 </style>
 </head>
@@ -1251,7 +1247,7 @@ details.spc.fold>summary small{margin-left:auto;font-size:12px;font-weight:400;c
 
 <header class="topbar">
   <div class="topbar-in">
-    <div class="brand"><span class="logo" aria-hidden="true"><svg class="ic ic-big"><use href="#i-chef"/></svg></span><h1>기린월드 수익계산기</h1></div>
+    <div class="brand"><span class="logo" aria-hidden="true"><svg class="ic ic-big"><use href="#i-chef"/></svg></span><h1>이월드 수익계산기</h1></div>
     <nav class="tabs" aria-label="직업 및 기능">
       <button class="tab" data-mode="cook"><span class="ti" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-chef"/></svg></span>요리사</button>
       <button class="tab" data-mode="alch"><span class="ti" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-flask"/></svg></span>연금술사</button>
@@ -1707,7 +1703,7 @@ const FILE_URL = 'craft-data.json';
 const MODES = { cook: '요리사', alch: '연금술사' };
 const MODE_ICON = { cook: '', alch: '' };
 const MODE_WORD = { cook: '요리', alch: '연금' };
-const APP_NAME = '기린월드 수익계산기';
+const APP_NAME = '이월드 수익계산기';
 const GRADES = [{ name: '일반', c: '#d4a373' }, { name: '고급', c: '#cbd5e1' }, { name: '희귀', c: '#facc15' }];
 const DAY = 86400000;
 const SPEC_LABEL = {
@@ -1755,6 +1751,7 @@ const SPEC_DEF = {
   },
   alch: {
     grind: { sim: { rare: 5, time: 5 }, min: { rare: 5, time: 5 } },
+    tote: [9, 13.5, 18],      // 토트의 비약 1·2·3단계: 희귀 비약 확률(%p)
     lv: [[1, 9, 0.9, 2.3, 0.5], [10, 10, 40.1, 0.3, 0.1], [11, 20, 1.5, 3.8, 1], [21, 30, 3, 7.5, 1.5], [31, 40, 1.5, 12.5, 3], [41, 50, 0, 18.8, 5], [51, 60, 0, 30, 2]],   // [시작, 끝, 시간 감소, 등급 상승, 재료 손실 방지]
     dex: [['흐름의 비약', 'g', [1, 1, 1]], ['볼칸의 비약', 'l', [.5, .5, .5]], ['활력의 비약', 'g', [1, 1, 1]], ['숲의 비약', 'l', [.5, .5, .5]], ['담금질의 비약', 'g', [1, 1, 1]],
       ['토트의 비약', 'l', [.5, .5, .5]], ['미식의 비약', 'g', [1, 1, 1]], ['나이테의 비약', 'l', [.5, .5, .5]], ['제련의 비약', 'g', [1, 1, 1]]],               // g = 등급 상승, l = 재료 손실 방지
@@ -1862,7 +1859,7 @@ function sanitizeSpec(s) {
     skillOn: o.skillOn !== false,                                   // 기술을 쿨타임마다 계속 쓴다고 계산 (끄면 안 쓴다고 계산)
     grindSim: o.grindSim === undefined ? num(o.trim) >= 1 : !!o.grindSim, grindMin: o.grindMin === undefined ? num(o.trim) >= 2 : !!o.grindMin,
     tote: (o.tote === undefined || o.tote === null || o.tote === '') ? 10 : Math.max(0, num(o.tote)),
-    toteOn: o.toteOn !== false, potionOn: o.potionOn === true, potionLv: Math.min(3, Math.max(1, Math.round(num(o.potionLv)) || 1)),
+    toteOn: o.toteOn !== false, toteLv: Math.min(3, Math.max(1, Math.round(num(o.toteLv)) || 1)), potionOn: o.potionOn === true, potionLv: Math.min(3, Math.max(1, Math.round(num(o.potionLv)) || 1)),
     dexOn, dat
   };
 }
@@ -2089,17 +2086,18 @@ function specProbs(M = cur()) {
   const rows = [], notes = [];
   const cond = (g, f) => { const s = 100 - f; return s > 0 ? g.map(a => a / s * 100) : [100, 0, 0]; };
   const diff = (a, b) => a.map((v, i) => v - b[i]);
+  const ov = (gg, ff) => cond(gg, ff).map(v => v * (1 - ff / 100));   // 실패까지 포함한 전체 기준 확률
   let base = sp.base && Array.isArray(sp.base.p) ? sp.base : W.base;
   let g = base.p.map(a => Math.max(0, a)), f = Math.max(0, base.fail);
   const tot = g[0] + g[1] + g[2] + f;
   if (tot > 0 && Math.abs(tot - 100) > 0.01) { g = g.map(a => a / tot * 100); f = f / tot * 100; }
-  rows.push({ label: '기본 (숙련도 반영값)', abs: { p: cond(g, f), dbl: 0, save: 0, fail: f } });
-  const step = (label, fn) => { const bg = g.slice(), bf = f, r = fn(); rows.push({ label, d: diff(cond(g, f), cond(bg, bf)), dbl: r.dbl || 0, sv: r.sv || 0, fl: f - bf }); };
+  rows.push({ label: '기본 (숙련도 반영값)', abs: { p: cond(g, f), pa: ov(g, f), dbl: 0, save: 0, fail: f } });
+  const step = (label, fn) => { const bg = g.slice(), bf = f, r = fn(); rows.push({ label, d: diff(cond(g, f), cond(bg, bf)), da: diff(ov(g, f), ov(bg, bf)), dbl: r.dbl || 0, sv: r.sv || 0, fl: f - bf }); };
   const dx = dexFx(M, S.mode);
   const dur = T.dur, reuse = cook ? T.dur + 300 : T.reuse;
   const uptimeAuto = reuse > 0 && dur > 0 ? dur / reuse : 0;
   const skillOk = cook ? tool >= 5 : tool >= 5;
-  const uptime = (sp.skillOn === false || !skillOk) ? 0 : (sp.uptime >= 0 ? sp.uptime / 100 : uptimeAuto);
+  const uptime = (sp.skillOn === false || !skillOk) ? 0 : uptimeAuto;       // 기술은 쿨타임이 돌 때마다 바로 쓴다고 계산
   const fx = { dexN: dx.n, dexTot: dx.tot, dexGrade: dx.grade, dexSave: dx.save, uptime, uptimeAuto, skillOn: sp.skillOn !== false, skillOk, T, tool, lvl };
   let dbl, save;
   if (cook) {
@@ -2118,8 +2116,8 @@ function specProbs(M = cur()) {
   } else {
     const lf = lvFx(D.lv, lvl);
     const gr = D.grind, rareG = (sp.grindSim ? gr.sim.rare : 0) + (sp.grindMin ? gr.min.rare : 0), timeG = (sp.grindSim ? gr.sim.time : 0) + (sp.grindMin ? gr.min.time : 0);
-    const tote = sp.toteOn === false ? 0 : Math.max(0, num(sp.tote)), rare = rareG + tote;
-    if (rare > 0) step(`희귀 비약 확률 +${fmtP(rare)}%p (분쇄 ${fmtP(rareG)} + 토트의 비약 ${fmtP(tote)})`, () => { const mv = Math.min(g[0], rare); g[0] -= mv; g[2] += mv; return {}; });
+    const toteLv = sp.toteLv || 1, tote = sp.toteOn === false ? 0 : Math.max(0, num(D.tote[toteLv - 1])), rare = rareG + tote;
+    if (rare > 0) step(`희귀 비약 확률 +${fmtP(rare)}%p (분쇄 ${fmtP(rareG)} + 토트의 비약 ${toteLv}단계 ${fmtP(tote)})`, () => { const mv = Math.min(g[0], rare); g[0] -= mv; g[2] += mv; return {}; });
     const up = lf.grade + dx.grade + T.refine, u1 = Math.min(0.9, up / 100);
     if (u1 > 0) step(`숙련도 ${fmtP(lf.grade)} + 도감 ${fmtP(dx.grade)} + 정제 ${fmtP(T.refine)} (등급 상승 ${fmtP(u1 * 100)}%)`, () => { g = upGrade(g, u1); return {}; });
     const sage = skillOk ? T.sage / 100 * uptime : 0;
@@ -2128,15 +2126,16 @@ function specProbs(M = cur()) {
     save = clampN(lf.save + dx.save, 0, 100);
     rows.push({ label: `막자 +${tool}강 (토트의 축복)`, d: [0, 0, 0], dbl, sv: 0, fl: 0 });
     rows.push({ label: `숙련도 Lv.${fmtP(lvl)} ${fmtP(lf.save)} + 도감 ${fmtP(dx.save)} (재료 손실 방지)`, d: [0, 0, 0], dbl: 0, sv: save, fl: 0 });
-    Object.assign(fx, { gradeUp: lf.grade + dx.grade, gradeLv: lf.grade, refine: T.refine, saveLv: lf.save, timeLv: lf.time, timeGrind: timeG, time: lf.time + timeG, rare, rareG, tote, bless: dbl, sage });
+    Object.assign(fx, { gradeUp: Math.min(90, lf.grade + dx.grade + T.refine), gradeRaw: lf.grade + dx.grade + T.refine, gradeLv: lf.grade, refine: T.refine, saveLv: lf.save, timeLv: lf.time, timeGrind: timeG, time: lf.time + timeG, rare, rareG, tote, toteLv, bless: dbl, sage });
   }
   let p = cond(g, f);
   if (!S.useGrades) p = [100, 0, 0];
   const work = sp.workOn !== false ? workOf(lvl) : 1;
-  if (tool >= 5) notes.push(sp.skillOn === false ? '기술 사용 안 함으로 계산' : `기술 가동률 ${fmtP(uptime * 100)}%${sp.uptime >= 0 ? ' (직접 입력)' : ` (지속 ${dur}초 ÷ 재사용 ${reuse}초)`}`);
+  if (tool >= 5) notes.push(sp.skillOn === false ? '기술 사용 안 함으로 계산' : `기술 가동률 ${fmtP(uptime * 100)}% (지속 ${dur}초 ÷ 재사용 ${reuse}초)`);
   notes.push(`${stageOf(lvl)}차 · 한 작업당 ${workOf(lvl)}개 산출${sp.workOn !== false ? '을 반영했어요' : ' (반영 끔)'}`);
   const cl = v => Math.max(0, Math.min(100, v));
-  return { p, dbl: cl(dbl), save: cl(save), fail: cl(f), work, stage: stageOf(lvl), uptime, rows, notes, fx, model: { placeholder: false } };
+  const pa = S.useGrades ? ov(g, f) : [100 - f, 0, 0];
+  return { p, pa, dbl: cl(dbl), save: cl(save), fail: cl(f), work, stage: stageOf(lvl), uptime, rows, notes, fx, model: { placeholder: false } };
 }
 
 /* ===== 시세 이력 · 예측 ===== */
@@ -2629,12 +2628,12 @@ function renderSpec() {
   const M = cur(), pr = specProbs(M), L = SPEC_LABEL[S.mode], sp = M.spec;
   const dexPct = pr.fx.dexTot ? pr.fx.dexN / pr.fx.dexTot * 100 : 0;
   const bar = S.useGrades
-    ? `<div class="pbar">${GRADES.map((g, i) => `<div style="width:${pr.p[i]}%;background:${g.c}">${pr.p[i] >= 20 ? g.name + ' ' + fmtP(pr.p[i]) + '%' : pr.p[i] >= 8 ? fmtP(pr.p[i]) + '%' : ''}</div>`).join('')}</div>` : '';
+    ? `<div class="pbar">${GRADES.map((g, i) => `<div style="width:${pr.pa[i]}%;background:${g.c}">${pr.pa[i] >= 20 ? g.name + ' ' + fmtP(pr.pa[i]) + '%' : pr.pa[i] >= 8 ? fmtP(pr.pa[i]) + '%' : ''}</div>`).join('')}${pr.fail > 0 ? `<div class="pfail" style="width:${pr.fail}%">${pr.fail >= 8 ? fmtP(pr.fail) + '%' : ''}</div>` : ''}</div>` : '';
   const cell = d => Math.abs(d) < 0.05 ? '<td>－</td>' : `<td class="${d > 0 ? 'pl' : 'm'}">${d > 0 ? '+' : '−'}${fmtP(Math.abs(d))}</td>`;
   const gcols = S.useGrades ? [0, 1, 2] : [];
   const b0 = pr.rows[0].abs;
   const rows = pr.rows.slice(1).map(r =>
-    `<tr><td>${esc(r.label)}</td>${gcols.map(g => cell(r.d[g])).join('')}${cell(r.dbl)}${cell(r.sv)}${cell(r.fl)}</tr>`).join('');
+    `<tr><td>${esc(r.label)}</td>${gcols.map(g => cell((r.da || r.d)[g])).join('')}${cell(r.dbl)}${cell(r.sv)}${cell(r.fl)}</tr>`).join('');
   $('#specBox').innerHTML = `
     <div class="sp-head"><h3>내 스펙</h3>
       <button class="btn sm" data-action="spec" type="button">스펙 편집</button></div>
@@ -2651,9 +2650,9 @@ function renderSpec() {
     <details class="why2">
       <summary>▾ 확률 계산 근거</summary>
       <table class="bt"><thead><tr><th>항목</th>${gcols.map(g => `<th><i class="gdot" style="background:${GRADES[g].c}"></i>${GRADES[g].name}</th>`).join('')}<th>2개 생산</th><th>재료 미소모</th><th>실패</th></tr></thead><tbody>
-        <tr><td>${esc(pr.rows[0].label)}</td>${gcols.map(g => `<td>${fmtP(b0.p[g])}%</td>`).join('')}<td>－</td><td>－</td><td>${fmtP(b0.fail)}%</td></tr>
+        <tr><td>${esc(pr.rows[0].label)}</td>${gcols.map(g => `<td>${fmtP(b0.pa[g])}%</td>`).join('')}<td>－</td><td>－</td><td>${fmtP(b0.fail)}%</td></tr>
         ${rows}
-        <tr class="sumrow"><td>내 확률</td>${gcols.map(g => `<td>${fmtP(pr.p[g])}%</td>`).join('')}<td>${fmtP(pr.dbl)}%</td><td>${fmtP(pr.save)}%</td><td>${fmtP(pr.fail)}%</td></tr>
+        <tr class="sumrow"><td>내 확률</td>${gcols.map(g => `<td>${fmtP(pr.pa[g])}%</td>`).join('')}<td>${fmtP(pr.dbl)}%</td><td>${fmtP(pr.save)}%</td><td>${fmtP(pr.fail)}%</td></tr>
       </tbody></table>
       <p class="hint2">${pr.notes.map(esc).join(' · ')}</p>
     </details>`;
@@ -2788,7 +2787,7 @@ function patchCard(el, it) {
   f('flag').innerHTML = fl ? `<button class="flag ${fl.kind}" data-action="quick" data-id="${esc(it.id)}" type="button" title="클릭해서 시세 입력">${fl.label}</button>` : '';
 
   gs.forEach(g => {
-    f('p' + g).textContent = fmtP(c.pr.p[g]) + '%';
+    f('p' + g).textContent = fmtP(c.pr.pa[g]) + '%';
     const nx = c.pred.next[g], now = c.prices[g];
     f('x' + g).innerHTML = nx !== null && now ? `<b class="${cls(nx - now)}">${fmt(nx)}</b><span class="chg ${cls(nx - now)}">${sgn(nx - now)}</span>` : '<span class="flat">－</span>';
   });
@@ -4033,7 +4032,6 @@ function spTierTable(D) {
 }
 const spFold = (title, note, body) => `<details class="spc fold"><summary><span>${title}</span><small>${note}</small></summary><div class="foldbody">${body}</div></details>`;
 const spSub = (title, body) => `<div class="subsec"><h3>${title}</h3>${body}</div>`;
-const spUptime = sp => `<div class="two" style="margin-top:8px"><div><label class="f">기술 가동률 % <small>(비우면 자동: 지속 ÷ 재사용)</small></label><input type="number" min="0" max="100" step="any" inputmode="decimal" data-role="spec" data-k="uptime" id="spUptime" value="${sp.uptime >= 0 ? sp.uptime : ''}"></div><div></div></div>`;
 const spTipSkill = '켜면 기술을 쿨타임마다 계속 쓴다고 계산해요\n끄면 쓰지 않는다고 계산해요';
 const spWork = sp => `<label class="check" style="margin-top:12px"><input type="checkbox" data-role="spec" data-k="workOn" ${sp.workOn !== false ? 'checked' : ''}> 숙련도 차수별 '한 작업당 산출 개수'(1·3·4·6개)를 계산에 반영</label>`;
 function spAlchHTML(M, sp, D) {
@@ -4045,7 +4043,7 @@ function spAlchHTML(M, sp, D) {
     <tr class="sptot" id="spLvTot"></tr></tbody></table></div><p class="note" id="spLvNote"></p><p class="note">구간을 다 채우면 구간 효과가 전부 적용돼요. 구간 안은 레벨 비율만큼 적용돼요.</p>`;
   const dex = `<div class="tscroll"><table class="et"><thead><tr><th>비약</th><th>효과</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th></tr></thead><tbody>${D.dex.map((r, i) => `<tr><td>${esc(r[0])}</td><td>${r[1] === 'l' ? '재료 손실 방지' : '등급 상승'}</td>${[0, 1, 2].map(j => `<td>${dI(`dex.${i}.2.${j}`, r[2][j], 64)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const tool = `<div class="kvs" id="spToolKv"></div><details class="fmt"><summary>강화 단계별 전체 표</summary>${spTierTable(D)}</details>`;
-  const tote = `<div style="max-width:320px"><label class="f">토트의 비약 희귀 비약 확률 증가 (%p)</label>${sI('tote', sp.tote, 'min="0"')}</div><p class="note">내 스펙에 맞게 직접 고쳐 쓰는 값이에요. 숙련도나 막자 강화로 바뀌지 않아요.</p>`;
+  const tote = `<div class="tscroll"><table class="et"><thead><tr><th>단계</th><th>희귀 비약 확률 %p</th></tr></thead><tbody>${[0, 1, 2].map(i => `<tr><td>${i + 1}단계</td><td>${dI(`tote.${i}`, D.tote[i], 64)}</td></tr>`).join('')}</tbody></table></div>`;
   return `<h2 id="spTitle">연금술사 · 내 스펙</h2><p class="sp-sub">입력한 값은 이 브라우저에만 저장돼요. 바꾸면 순위와 수익에 바로 반영돼요.</p>
   <div class="spc sum"><h2>최종 적용 수치 <small id="spSumNote"></small></h2><div class="kvs" id="spSum"></div></div>
   <div class="spc"><h2>기본 스펙</h2>
@@ -4055,9 +4053,9 @@ function spAlchHTML(M, sp, D) {
       ${spChk('grindMin', sp.grindMin, '광물 가루 사용', `희귀 +${fp(D.grind.min.rare)}%p · 시간 −${fp(D.grind.min.time)}%`, `광물 가루\n희귀 비약 확률 +${fp(D.grind.min.rare)}%p\n비약 제작 시간 ${fp(D.grind.min.time)}% 감소`)}</div>
     ${spWork(sp)}
     <div class="grp"><div class="gl">사용 여부 <small>켜면 상시 사용, 끄면 사용 안 함으로 계산</small></div>
-      ${spChk('skillOn', sp.skillOn !== false, '연금술사 기술 사용', '+5강부터', spTipSkill)}
-      ${spChk('toteOn', sp.toteOn !== false, '토트의 비약 사용', '희귀 비약 확률 증가', '켜면 비약을 상시 먹는다고 계산해요\n끄면 먹지 않는다고 계산해요')}
-      ${spUptime(sp)}</div></div>
+      ${spChk('skillOn', sp.skillOn !== false, '연금술사 기술 사용', '', spTipSkill)}
+      <div class="potrow">${spChk('toteOn', sp.toteOn !== false, '토트의 비약 사용', '희귀 비약 확률', '켜면 비약을 상시 먹는다고 계산해요\n끄면 먹지 않는다고 계산해요')}
+        <select data-role="spec" data-k="toteLv" aria-label="토트의 비약 단계">${[1, 2, 3].map(n => `<option value="${n}" ${(sp.toteLv || 1) === n ? 'selected' : ''}>${n}단계 +${fp(D.tote[n - 1])}%p</option>`).join('')}</select></div></div></div>
   ${spDexSec(M, D, 'alch', '비약 도감')}
   ${spFold('수치 설정', '밸런스가 바뀔 때만 고치면 돼요',
     spSub('분쇄 가루 효과', grind) + spSub('숙련도 효과', lv) + spSub('비약 도감 보너스 (%p)', dex) + spSub('막자 강화 효과', tool) + spSub('토트의 비약', tote) + spSub('기본 등급 확률', spBaseHTML()) +
@@ -4073,13 +4071,13 @@ function spCookHTML(M, sp, D) {
   <div class="spc sum"><h2>최종 적용 수치 <small id="spSumNote"></small></h2><div class="kvs" id="spSum"></div></div>
   <div class="spc"><h2>기본 스펙</h2>
     <div class="two"><div><label class="f">식칼 강화 (0~20강)</label>${sI('tool', sp.tool, 'min="0" max="20" step="1"')}</div><div><label class="f">요리사 숙련도 (1~60)</label>${sI('level', sp.level, 'min="0" max="60" step="1"')}</div></div>
-    <div class="two" style="margin-top:12px"><div><label class="f">손질한 재료 종류 (0~3)</label>${sI('trim', sp.trim || '', 'min="0" max="3" step="1"')}</div><div></div></div>
+    <div class="grp"><div class="gl">손질 <small>손질한 재료 종류마다 희귀 +5%p, 탄 요리 −10%</small></div>
+      ${[1, 2, 3].map(n => `<label class="spk${(sp.trim || 0) >= n ? ' on' : ''}"><input type="checkbox" data-role="trimchk" data-i="${n}" ${(sp.trim || 0) >= n ? 'checked' : ''}><i class="cb">${CHK}</i><span>손질한 재료 ${n}종</span><em class="r">희귀 +5%p · 탄 요리 −10%</em></label>`).join('')}</div>
     ${spWork(sp)}
     <div class="grp"><div class="gl">사용 여부 <small>켜면 상시 사용, 끄면 사용 안 함으로 계산</small></div>
-      ${spChk('skillOn', sp.skillOn !== false, '식칼 기술 사용', '+5강부터', spTipSkill)}
+      ${spChk('skillOn', sp.skillOn !== false, '식칼 기술 사용', '', spTipSkill)}
       <div class="potrow">${spChk('potionOn', sp.potionOn === true, '미식의 비약 사용', '재료 손실 방지', '켜면 비약을 상시 먹는다고 계산해요\n끄면 먹지 않는다고 계산해요')}
-        <select data-role="spec" data-k="potionLv" aria-label="미식의 비약 단계">${[1, 2, 3].map(n => `<option value="${n}" ${(sp.potionLv || 1) === n ? 'selected' : ''}>${n}단계 +${fp(D.potion[n - 1])}%p</option>`).join('')}</select></div>
-      ${spUptime(sp)}</div></div>
+        <select data-role="spec" data-k="potionLv" aria-label="미식의 비약 단계">${[1, 2, 3].map(n => `<option value="${n}" ${(sp.potionLv || 1) === n ? 'selected' : ''}>${n}단계 +${fp(D.potion[n - 1])}%p</option>`).join('')}</select></div></div></div>
   ${spDexSec(M, D, 'cook', '요리사 도감')}
   ${spFold('수치 설정', '밸런스가 바뀔 때만 고치면 돼요',
     spSub('도감 보너스 (요리별 · %p)', dexT) + spSub('식칼 강화 단계별 표', toolT) + spSub('미식의 비약', pot) + spSub('기본 등급 확률', spBaseHTML()) +
@@ -4104,13 +4102,12 @@ function specLive() {
   $('#spDexBar').style.width = dp + '%';
   $$('#spDexGrid .lv').forEach(l => l.classList.toggle('on', l.querySelector('input').checked));
   $$('#specModal label.spk').forEach(l => l.classList.toggle('on', l.querySelector('input').checked));
-  const up = $('#spUptime'); if (up) up.placeholder = fp(fx.uptimeAuto * 100);
-  const ps = $('#specModal select[data-k=potionLv]'); if (ps) [...ps.options].forEach((o, i) => { o.textContent = `${i + 1}단계 +${fp(D.potion[i])}%p`; });
+  [['potionLv', 'potion'], ['toteLv', 'tote']].forEach(([k, f]) => { const ps = $(`#specModal select[data-k=${k}]`); if (ps && D[f]) [...ps.options].forEach((o, i) => { o.textContent = `${i + 1}단계 +${fp(D[f][i])}%p`; }); });
   if (cook) {
     $('#spSumNote').textContent = fx.skillOn ? '기술 사용 켬' : '기술 사용 끔';
     $('#spSum').innerHTML = kv('도감 등급 상승', `+${fp(fx.dexGrade)}%p`, `${fx.dexN}/${fx.dexTot} 달성`, 1) + kv('재료 손실 방지', fp(pr.save) + '%', `숙련도 ${fp(fx.saveLv)}${fx.potion ? ' · 비약 ' + fp(fx.potion) : ''} · 재료 생략 ${fp(fx.skip)}`) + kv('2개 생산', fp(pr.dbl) + '%', '데메테르의 축복') +
-      kv('기술 가동률', fp(fx.uptime * 100) + '%', fx.skillOn ? (fx.skillOk ? '쿨타임마다 사용' : '+5강부터 사용') : '사용 안 함') + kv('미식의 비약', M.spec.potionOn ? `${fx.potLv}단계 +${fp(fx.potion)}%p` : '사용 안 함') +
-      GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.p[i]) + '%')).join('');
+      (fx.skillOk ? kv('기술 가동률', fp(fx.uptime * 100) + '%', fx.skillOn ? '쿨타임마다 사용' : '사용 안 함') : '') + kv('미식의 비약', M.spec.potionOn ? `${fx.potLv}단계 +${fp(fx.potion)}%p` : '사용 안 함') +
+      GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.pa[i]) + '%')).join('') + (pr.fail > 0 ? kv(cook ? '탄 요리' : '실패', fp(pr.fail) + '%') : '');
     return;
   }
   const lf = lvFx(D.lv, sp.level);
@@ -4125,11 +4122,11 @@ function specLive() {
   $('#spToolKv').innerHTML = kv('정제', fp(T.refine)) + kv('토트의 축복', fp(T.bless) + '%', `발동 시 같은 비약 ${T.count}병 추가`) + kv('개척지 희귀 확률', fp(T.front) + '%') + (t5 ? kv('농축', fp(T.conc) + '%') : '') +
     (t5 ? kv('현자의 돌', fp(T.sage) + '%', `${T.dur}초 지속 · ${T.reuse}초 재사용`) + kv('증폭', `+${fp(T.amp)}분`, `${T.ampDur}초 지속 · ${T.ampReuse}초 재사용 · 마나 ${T.mana}`) : '');
   $('#spSumNote').textContent = t5 ? (fx.skillOn ? '기술 사용 켬' : '기술 사용 끔') : '';
-  $('#spSum').innerHTML = kv('희귀 비약 확률 추가', `+${fp(fx.rare)}%p`, `분쇄 ${fp(fx.rareG)} + 토트의 비약 ${fp(fx.tote)}${sp.toteOn === false ? ' (사용 안 함)' : ''}`, 1) + kv('비약 제작 시간 감소', `−${fp(fx.time)}%`, `숙련도 ${fp(fx.timeLv)} + 분쇄 ${fp(fx.timeGrind)}`) +
-    kv('결과물 등급 상승 확률', `+${fp(fx.gradeUp)}%p`, `숙련도 ${fp(fx.gradeLv)} + 도감 ${fp(fx.dexGrade)}${fx.refine ? ' · 정제 ' + fp(fx.refine) + ' 별도 적용' : ''}`) + kv('재료 손실 방지', fp(pr.save) + '%', `숙련도 ${fp(fx.saveLv)} + 도감 ${fp(fx.dexSave)}`) +
-    kv('정제', fp(T.refine)) + kv('토트의 축복', fp(T.bless) + '%', `추가 ${T.count}병 · 주문 잉크 제외`) + kv('농축', t5 ? fp(T.conc) + '%' : '+5강부터') +
-    kv('현자의 돌', t5 ? fp(T.sage) + '%' : '+5강부터', t5 ? `${T.dur}초 지속 · ${T.reuse}초 재사용` + (fx.skillOn ? ` · 가동 ${fp(fx.uptime * 100)}%` : '') : '') + kv('증폭', t5 ? `+${fp(T.amp)}분` : '+5강부터', t5 ? `${T.ampDur}초 지속 · ${T.ampReuse}초 재사용 · 마나 ${T.mana}` : '') +
-    GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.p[i]) + '%')).join('');
+  $('#spSum').innerHTML = kv('희귀 비약 확률 추가', `+${fp(fx.rare)}%p`, `분쇄 ${fp(fx.rareG)} + 토트의 비약 ${sp.toteOn === false ? '사용 안 함' : fx.toteLv + '단계 ' + fp(fx.tote)}`, 1) + kv('비약 제작 시간 감소', `−${fp(fx.time)}%`, `숙련도 ${fp(fx.timeLv)} + 분쇄 ${fp(fx.timeGrind)}`) +
+    kv('결과물 등급 상승 확률', `+${fp(fx.gradeUp)}%p`, `숙련도 ${fp(fx.gradeLv)} + 도감 ${fp(fx.dexGrade)} + 정제 ${fp(fx.refine)}${fx.gradeLv + fx.dexGrade + fx.refine > 90 ? ' (최대 90)' : ''}`) + kv('재료 손실 방지', fp(pr.save) + '%', `숙련도 ${fp(fx.saveLv)} + 도감 ${fp(fx.dexSave)}`) +
+    kv('토트의 축복', fp(T.bless) + '%', `추가 ${T.count}병 · 주문 잉크 제외`) +
+    (t5 ? kv('농축', fp(T.conc) + '%') + kv('현자의 돌', fp(T.sage) + '%', `${T.dur}초 지속 · ${T.reuse}초 재사용` + (fx.skillOn ? ` · 가동 ${fp(fx.uptime * 100)}%` : '')) + kv('증폭', `+${fp(T.amp)}분`, `${T.ampDur}초 지속 · ${T.ampReuse}초 재사용 · 마나 ${T.mana}`) : '') +
+    GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.pa[i]) + '%')).join('') + (pr.fail > 0 ? kv(cook ? '탄 요리' : '실패', fp(pr.fail) + '%') : '');
 }
 function specDexFilter() {
   const q = (($('#spDexQ') || {}).value || '').trim().toLowerCase(), f = (($('#spDexF .a') || {}).dataset || {}).f || 'all', on = cur().spec.dexOn || {};
@@ -4145,7 +4142,8 @@ function datSet(path, val) {
 document.addEventListener('change', e => {
   const t = e.target; if (!t.closest || !t.closest('#specModal')) return;
   const role = t.dataset && t.dataset.role, M = cur(), sp = M.spec;
-  if (role === 'dexchk') { const n = t.dataset.n; (sp.dexOn = sp.dexOn || {})[n] = (sp.dexOn[n] || [0, 0, 0]).slice(); sp.dexOn[n][+t.dataset.i] = t.checked ? 1 : 0; save(); renderAll(); specLive(); specDexFilter(); }
+  if (role === 'trimchk') { const n = +t.dataset.i; sp.trim = t.checked ? n : n - 1; $$('#specModal input[data-role=trimchk]').forEach(i => { i.checked = +i.dataset.i <= sp.trim; }); save(); renderAll(); specLive(); }
+  else if (role === 'dexchk') { const n = t.dataset.n; (sp.dexOn = sp.dexOn || {})[n] = (sp.dexOn[n] || [0, 0, 0]).slice(); sp.dexOn[n][+t.dataset.i] = t.checked ? 1 : 0; save(); renderAll(); specLive(); specDexFilter(); }
 });
 document.addEventListener('input', e => {
   const t = e.target; if (!t.closest || !t.closest('#specModal')) return;

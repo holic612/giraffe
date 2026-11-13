@@ -1152,6 +1152,73 @@ details.why2 summary{color:var(--accent-ink)}
 .tr.b-now .c-now .v1,.tr.b-next .c-next .v1,.c-next .v1,.c-next .v2{color:var(--text)}
 .tr.r1.b-now .c-now .v1,.tr.r1.b-next .c-next .v1{color:var(--accent-ink)}
 .c-next .v2{color:var(--dim)}
+/* ---- 스펙 편집 창 ---- */
+.sp-sub{color:var(--muted);font-size:13px;margin:4px 0 16px}
+.spc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.spc>h2{font-size:15px;font-weight:600;margin:0 0 12px;display:flex;align-items:baseline;gap:8px;position:static;padding:0;border:0;background:none}
+.spc>h2 small{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted)}
+.spc.sum{border-color:var(--line2)}
+.spk{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--inset);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;position:relative}
+.spk input,.spl input{position:absolute;opacity:0;pointer-events:none}
+.spk .r{margin-left:auto;color:var(--dim);font-size:12px;font-style:normal;font-family:var(--mono)}
+.cb{width:16px;height:16px;border:1px solid var(--line2);border-radius:4px;display:inline-grid;place-items:center;flex:none;color:transparent}
+.cb .ic{width:12px;height:12px;stroke-width:2.5}
+.spk.on .cb,.lv.on .cb{background:var(--accent);border-color:var(--accent);color:#1c1305}
+body[data-theme="light"] .spk.on .cb,body[data-theme="light"] .lv.on .cb{color:#fff}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+.stats{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--dim)} .stats b{color:var(--text);font-family:var(--mono);font-weight:500}
+.bar{height:6px;border-radius:99px;background:var(--raised);margin:8px 0 12px;overflow:hidden} .bar i{display:block;height:100%;background:var(--accent);width:0}
+.tools{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.spin{flex:1;min-width:160px;display:flex;align-items:center;gap:8px;background:var(--inset);border:1px solid var(--line2);border-radius:10px;height:36px;padding:0 12px;color:var(--muted)}
+.spin input{border:0!important;background:none!important;height:34px;padding:0!important;min-height:0;flex:1;box-shadow:none!important;border-radius:0!important;outline:0;color:var(--text)}
+.spseg{display:flex;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:2px}
+.spseg button{border:0;background:none;color:var(--dim);padding:6px 12px;border-radius:8px;font-size:13px;min-height:0;height:auto}
+.spseg button.a{background:var(--raised);color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media (max-width:720px){.pgrid{grid-template-columns:1fr 1fr}} @media (max-width:480px){.pgrid{grid-template-columns:1fr}}
+.pc{position:relative;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:12px}
+.pc[hidden]{display:none}
+.pc .pn{font-weight:500;display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px}
+.pc .pn small{color:var(--muted);font-weight:400;font-size:12px}
+.pc .pg{font-size:12px;color:var(--muted);margin:4px 0 8px}
+.pc .spl{display:grid;gap:4px}
+.lv{position:relative;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim);cursor:pointer;padding:2px 0}
+.lv em{font-style:normal;margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.lv.on{color:var(--text)} .lv.on em{color:var(--accent-ink)}
+.lv input{position:absolute;opacity:0;pointer-events:none}
+[data-tip]{position:relative}
+[data-tip]::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;width:max-content;max-width:260px;white-space:pre-line;background:var(--raised);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;font-size:12px;line-height:1.5;color:var(--dim);font-weight:400;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .16s var(--ease),transform .16s var(--ease)}
+[data-tip]:hover::after,[data-tip]:focus::after,[data-tip]:focus-within::after{opacity:1;transform:none}
+.lv[data-tip]::after{left:auto;right:0}
+.pc[data-tip]:hover>.spl .lv:hover::after{opacity:1}
+.tscroll{overflow-x:auto;margin:0 -4px}
+.et{width:100%;border-collapse:collapse;font-size:13px}
+.et th{font-weight:400;color:var(--muted);text-align:right;padding:4px 8px;font-size:12px;white-space:nowrap}
+.et th:first-child,.et td:first-child{text-align:left}
+.et td{padding:4px 8px;border-top:1px solid var(--line);text-align:right;font-family:var(--mono)}
+.et td:first-child{font-family:inherit;color:var(--dim);white-space:nowrap}
+.et td small{color:var(--muted);font-size:11px}
+.et tr.cur td{background:var(--raised)} .et tr.cur td:first-child{color:var(--accent-ink);font-weight:500}
+.et tr.sptot td{font-weight:500;color:var(--text);padding:8px}
+input.spti{width:72px;height:32px;min-height:0;padding:0 6px;text-align:right;font-family:var(--mono);font-size:13px;border-radius:8px}
+.kvs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px}
+.spc.sum .kvs{margin:0}
+.sk{background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:12px}
+.sk span{display:block;font-size:12px;color:var(--muted)}
+.sk b{display:block;font-size:18px;font-weight:500;font-family:var(--mono);margin-top:4px}
+.sk small{display:block;font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+.sk.hl{border-color:var(--line2)} .sk.hl b{color:var(--accent-ink)}
+.grp{margin-top:16px}.grp .gl{font-size:13px;color:var(--dim);margin-bottom:8px}.grp .gl small{color:var(--muted);font-size:12px;margin-left:8px}
+.potrow{display:grid;grid-template-columns:1fr 190px;gap:8px;align-items:start}.potrow .spk{margin-bottom:8px}.potrow select{height:40px;width:100%}@media (max-width:520px){.potrow{grid-template-columns:1fr}}
+details.spc.fold{padding:0}
+details.spc.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:8px;padding:16px;font-size:15px;font-weight:600}
+details.spc.fold>summary::-webkit-details-marker{display:none}
+details.spc.fold>summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(-45deg);transition:transform .16s var(--ease);margin-right:4px;align-self:center}
+details.spc.fold[open]>summary::before{transform:rotate(45deg)}
+details.spc.fold>summary small{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted)}
+.foldbody{padding:0 16px 16px}
+.subsec{padding-top:16px;border-top:1px solid var(--line);margin-top:16px}.subsec:first-child{border-top:0;margin-top:0;padding-top:0}
+.subsec>h3{font-size:14px;font-weight:600;margin:0 0 12px}
 /*DS-END*/
 </style>
 </head>
@@ -1676,6 +1743,52 @@ const SPEC_DATA = {
 };
 const LV_SAVE = [[0, 0], [9, 0.5], [10, 0.5], [20, 1.5], [30, 3], [40, 6], [50, 11], [60, 13]];   // 숙련도 재료 손실 방지(%) 누적: 구간 끝 값, 구간 안은 직선으로
 const lerpPts = (pts, x) => { for (let i = 1; i < pts.length; i++) if (x <= pts[i][0]) { const [x0, y0] = pts[i - 1], [x1, y1] = pts[i]; return x1 === x0 ? y1 : y0 + (y1 - y0) * (x - x0) / (x1 - x0); } return pts[pts.length - 1][1]; };
+/* ===== 스펙 기본 수치 (모두 스펙 편집 창에서 바꿀 수 있어요. 바꾸면 이 브라우저에만 저장돼요) ===== */
+const MANA = [30, 31, 32, 33, 35, 37, 39, 41, 43, 45, 50, 56, 60, 64, 68, 70];
+const SPEC_DEF = {
+  cook: {
+    dex: [['호박죽', [.67, .67, .67]], ['피라니아 튀김', [.67, .67, .67]], ['레몬구이', [.67, .67, .67]], ['쑤기미 매운탕', [.67, .67, .67]],
+      ['고구마 조림', [.67, .67, .67]], ['청새치 스테이크', [.67, .67, .67]], ['미식의 연대기 키위 카르파초', [.67, .67, .67]], ['레몬에이드', [.67, .67, .67]],
+      ['양배추찜', [.67, .67, .66]], ['옥수수전', [.66, .66, .66]], ['호박전', [.66, .66, .66]], ['비트 샐러드', [.66, .66, .66]], ['탄 요리', [.66, .66, .66]]],
+    potion: [5, 7.5, 10],     // 미식의 비약 1·2·3단계: 요리 재료 손실 방지(%p)
+    tool: Array.from({ length: 21 }, (_, i) => ({ dbl: SPEC_DATA.cook.toolDbl[i], skip: SPEC_DATA.cook.toolSkip[i], dur: SPEC_DATA.cook.toolDur[i] }))
+  },
+  alch: {
+    grind: { sim: { rare: 5, time: 5 }, min: { rare: 5, time: 5 } },
+    lv: [[1, 9, 0.9, 2.3, 0.5], [10, 10, 40.1, 0.3, 0.1], [11, 20, 1.5, 3.8, 1], [21, 30, 3, 7.5, 1.5], [31, 40, 1.5, 12.5, 3], [41, 50, 0, 18.8, 5], [51, 60, 0, 30, 2]],   // [시작, 끝, 시간 감소, 등급 상승, 재료 손실 방지]
+    dex: [['흐름의 비약', 'g', [1, 1, 1]], ['볼칸의 비약', 'l', [.5, .5, .5]], ['활력의 비약', 'g', [1, 1, 1]], ['숲의 비약', 'l', [.5, .5, .5]], ['담금질의 비약', 'g', [1, 1, 1]],
+      ['토트의 비약', 'l', [.5, .5, .5]], ['미식의 비약', 'g', [1, 1, 1]], ['나이테의 비약', 'l', [.5, .5, .5]], ['제련의 비약', 'g', [1, 1, 1]]],               // g = 등급 상승, l = 재료 손실 방지
+    tool: Array.from({ length: 21 }, (_, i) => {
+      const d = SPEC_DATA.alch, on = i >= 5, dur = d.toolDur[i];
+      return { refine: d.toolRefine[i], bless: d.toolDbl[i], count: i >= 1 ? 1 : 0, front: [0, .1, .4, .8, 1.2, 1.6, 2.1, 2.7, 3.3, 3.9, 4.6, 5.3, 6, 6.8, 7.6, 8.4, 9.3, 10.2, 11.1, 12, 18][i],
+        conc: !on ? 0 : i >= 20 ? 100 : i >= 15 ? 75 : i >= 10 ? 50 : 25, sage: d.toolSage[i], dur, reuse: on ? dur + 300 : 0,
+        amp: !on ? 0 : i >= 20 ? 5 : i >= 15 ? 4 : i >= 10 ? 3 : 2, ampDur: dur, ampReuse: on ? dur + 300 : 0, mana: on ? MANA[i - 5] : 0 };
+    })
+  }
+};
+const clone = o => JSON.parse(JSON.stringify(o));
+const r6 = v => Number(Number(v).toFixed(6));
+function fitTo(def, src) {                       // 저장된 값을 기본 구조에 맞춰요 (숫자만 가져옴)
+  if (Array.isArray(def)) return def.map((x, i) => fitTo(x, Array.isArray(src) ? src[i] : undefined));
+  if (def && typeof def === 'object') { const o = {}; Object.keys(def).forEach(k => { o[k] = fitTo(def[k], src && typeof src === 'object' ? src[k] : undefined); }); return o; }
+  if (typeof def === 'number') return (src !== undefined && src !== null && src !== '' && isFinite(Number(src))) ? Number(src) : def;
+  return def;
+}
+const specD = (M = cur(), mode = S.mode) => M.spec.dat || SPEC_DEF[mode];
+function lvFx(lv, L) {                           // 구간을 다 채우면 구간 효과 전부, 구간 안은 레벨 비율만큼
+  let time = 0, grade = 0, save = 0;
+  lv.forEach(([a, b, tm, gr, sv]) => { const f = Math.max(0, Math.min(1, (L - a + 1) / (b - a + 1))); time += tm * f; grade += gr * f; save += sv * f; });
+  return { time: r6(time), grade: r6(grade), save: r6(save) };
+}
+function dexFx(M, mode) {
+  const D = specD(M, mode), on = M.spec.dexOn || {};
+  let n = 0, grade = 0, save = 0, tot = D.dex.length * 3;
+  D.dex.forEach(row => {
+    const name = row[0], kind = mode === 'alch' ? row[1] : 'g', vals = mode === 'alch' ? row[2] : row[1], ck = on[name] || [0, 0, 0];
+    vals.forEach((v, i) => { if (ck[i]) { n++; if (kind === 'l') save += v; else grade += v; } });
+  });
+  return { n, tot, grade: r6(grade), save: r6(save) };
+}
 const stageOf = lv => lv >= 30 ? 4 : lv >= 20 ? 3 : lv >= 10 ? 2 : 1;
 const workOf = lv => [0, 1, 3, 4, 6][stageOf(lv)];                                                                       // 차수별 한 작업당 산출 개수
 const upGrade = (g, u) => [g[0] * (1 - u), g[1] * (1 - u) + g[0] * u, g[2] + g[1] * u];                                  // 등급 상승: 일반→고급, 고급→희귀 (희귀는 그대로)
@@ -1739,11 +1852,18 @@ function normalizeModel(m) {
 function sanitizeSpec(s) {
   const o = (s && typeof s === 'object') ? s : {};
   const b = o.base && Array.isArray(o.base.p) ? { p: [0, 1, 2].map(i => Math.max(0, num(o.base.p[i]))), fail: Math.max(0, num(o.base.fail)) } : null;
+  const dexOn = {};
+  if (o.dexOn && typeof o.dexOn === 'object') Object.keys(o.dexOn).forEach(k => { const a = o.dexOn[k]; if (Array.isArray(a)) dexOn[k] = [0, 1, 2].map(i => a[i] ? 1 : 0); });
+  const dat = (o.dat && typeof o.dat === 'object') ? (o.dat.lv ? fitTo(SPEC_DEF.alch, o.dat) : (o.dat.dex && o.dat.tool) ? fitTo(SPEC_DEF.cook, o.dat) : null) : null;
   return {
     tool: Math.min(20, Math.max(0, num(o.tool))), level: Math.min(60, Math.max(0, num(o.level))),
-    dexHave: Math.max(0, num(o.dexHave)), dexMax: Math.max(0, num(o.dexMax)),
     trim: Math.max(0, Math.floor(num(o.trim))), uptime: (o.uptime === null || o.uptime === undefined || o.uptime === '' || !(num(o.uptime) >= 0)) ? -1 : Math.min(100, num(o.uptime)),
-    workOn: o.workOn !== false, base: b
+    workOn: o.workOn !== false, base: b,
+    skillOn: o.skillOn !== false,                                   // 기술을 쿨타임마다 계속 쓴다고 계산 (끄면 안 쓴다고 계산)
+    grindSim: o.grindSim === undefined ? num(o.trim) >= 1 : !!o.grindSim, grindMin: o.grindMin === undefined ? num(o.trim) >= 2 : !!o.grindMin,
+    tote: (o.tote === undefined || o.tote === null || o.tote === '') ? 10 : Math.max(0, num(o.tote)),
+    toteOn: o.toteOn !== false, potionOn: o.potionOn === true, potionLv: Math.min(3, Math.max(1, Math.round(num(o.potionLv)) || 1)),
+    dexOn, dat
   };
 }
 function sanitizePredLog(l) {
@@ -1963,10 +2083,9 @@ function statVal(spec, stat) {
   return num(spec[stat]);
 }
 function specProbs(M = cur()) {
-  const W = SPEC_DATA[S.mode], sp = M.spec, cook = S.mode === 'cook';
+  const W = SPEC_DATA[S.mode], sp = M.spec, cook = S.mode === 'cook', D = specD(M);
   const clampN = (v, a, b) => Math.max(a, Math.min(b, v));
-  const tool = clampN(Math.round(sp.tool), 0, 20), lvl = clampN(sp.level, 0, 60);
-  const dexMax = sp.dexMax > 0 ? sp.dexMax : W.dexTotal, fr = clampN(sp.dexHave / dexMax, 0, 1);
+  const tool = clampN(Math.round(sp.tool), 0, 20), lvl = clampN(sp.level, 0, 60), T = D.tool[tool];
   const rows = [], notes = [];
   const cond = (g, f) => { const s = 100 - f; return s > 0 ? g.map(a => a / s * 100) : [100, 0, 0]; };
   const diff = (a, b) => a.map((v, i) => v - b[i]);
@@ -1976,40 +2095,48 @@ function specProbs(M = cur()) {
   if (tot > 0 && Math.abs(tot - 100) > 0.01) { g = g.map(a => a / tot * 100); f = f / tot * 100; }
   rows.push({ label: '기본 (숙련도 반영값)', abs: { p: cond(g, f), dbl: 0, save: 0, fail: f } });
   const step = (label, fn) => { const bg = g.slice(), bf = f, r = fn(); rows.push({ label, d: diff(cond(g, f), cond(bg, bf)), dbl: r.dbl || 0, sv: r.sv || 0, fl: f - bf }); };
-  // 손질 / 분쇄 가루: 희귀 +5%p (종류마다), 요리는 탄 요리 종류마다 10% 감소 (가정: 비율로 줄임)
-  const k = clampN(Math.round(sp.trim), 0, W.trimMax);
-  if (k > 0) step(cook ? `손질 ${k}종` : `분쇄 가루 ${k}종`, () => {
-    const mv = Math.min(g[0], 5 * k); g[0] -= mv; g[2] += mv;
-    if (cook) { const nf = f * (1 - 0.1 * k); g[0] += f - nf; f = nf; }
-    return {};
-  });
-  // 도감 / 정제: 등급 상승 (일반→고급, 고급→희귀)
-  const dexUp = W.dexUp * fr / 100, refine = cook ? 0 : W.toolRefine[tool] / 100;
-  const u1 = Math.min(0.9, dexUp + refine);
-  if (u1 > 0) step(cook ? `도감 ${Math.round(fr * 100)}% (등급 상승 ${fmtP(u1 * 100)}%)` : `도감·정제 (등급 상승 ${fmtP(u1 * 100)}%)`, () => { g = upGrade(g, u1); return {}; });
-  // 도구 강화
-  const dur = W.toolDur[tool], uptimeAuto = dur > 0 ? dur / (dur + 300) : 0;
-  const uptime = sp.uptime >= 0 ? sp.uptime / 100 : uptimeAuto;
-  const dbl = W.toolDbl[tool];
-  let skipEff = 0;
-  if (cook) skipEff = W.toolSkip[tool] * uptime;
-  const lvSave = lerpPts(LV_SAVE, lvl);
-  let save;
-  if (cook) save = (1 - (1 - lvSave / 100) * (1 - skipEff / 100)) * 100;
-  else save = (1 - (1 - lvSave / 100) * (1 - W.dexSave * fr / 100)) * 100;
-  rows.push({ label: `${cook ? '식칼' : '막자'} +${tool}강 (${cook ? '데메테르' : '토트'}의 축복)`, d: [0, 0, 0], dbl, sv: cook ? save - lvSave : 0, fl: 0 });
-  if (!cook) {
-    const sage = W.toolSage[tool] / 100 * uptime;
+  const dx = dexFx(M, S.mode);
+  const dur = T.dur, reuse = cook ? T.dur + 300 : T.reuse;
+  const uptimeAuto = reuse > 0 && dur > 0 ? dur / reuse : 0;
+  const skillOk = cook ? tool >= 5 : tool >= 5;
+  const uptime = (sp.skillOn === false || !skillOk) ? 0 : (sp.uptime >= 0 ? sp.uptime / 100 : uptimeAuto);
+  const fx = { dexN: dx.n, dexTot: dx.tot, dexGrade: dx.grade, dexSave: dx.save, uptime, uptimeAuto, skillOn: sp.skillOn !== false, skillOk, T, tool, lvl };
+  let dbl, save;
+  if (cook) {
+    const k = clampN(Math.round(sp.trim), 0, W.trimMax);
+    if (k > 0) step(`손질 ${k}종`, () => { const mv = Math.min(g[0], 5 * k); g[0] -= mv; g[2] += mv; const nf = f * (1 - 0.1 * k); g[0] += f - nf; f = nf; return {}; });
+    const u1 = Math.min(0.9, dx.grade / 100);
+    if (u1 > 0) step(`도감 ${dx.n}/${dx.tot} (등급 상승 ${fmtP(u1 * 100)}%)`, () => { g = upGrade(g, u1); return {}; });
+    dbl = T.dbl;
+    const skipEff = T.skip * uptime, lvSave = lerpPts(LV_SAVE, lvl);
+    const potLv = sp.potionLv || 1, potion = sp.potionOn ? Math.max(0, num(D.potion[potLv - 1])) : 0;
+    save = (1 - (1 - (lvSave + potion) / 100) * (1 - skipEff / 100)) * 100;
+    rows.push({ label: `식칼 +${tool}강 (데메테르의 축복)`, d: [0, 0, 0], dbl, sv: save - lvSave - potion, fl: 0 });
+    rows.push({ label: `숙련도 Lv.${fmtP(lvl)} (재료 손실 방지)`, d: [0, 0, 0], dbl: 0, sv: lvSave, fl: 0 });
+    if (potion > 0) rows.push({ label: `미식의 비약 ${potLv}단계 (재료 손실 방지)`, d: [0, 0, 0], dbl: 0, sv: potion, fl: 0 });
+    Object.assign(fx, { gradeUp: dx.grade, saveLv: lvSave, skip: skipEff, bless: dbl, potion, potLv });
+  } else {
+    const lf = lvFx(D.lv, lvl);
+    const gr = D.grind, rareG = (sp.grindSim ? gr.sim.rare : 0) + (sp.grindMin ? gr.min.rare : 0), timeG = (sp.grindSim ? gr.sim.time : 0) + (sp.grindMin ? gr.min.time : 0);
+    const tote = sp.toteOn === false ? 0 : Math.max(0, num(sp.tote)), rare = rareG + tote;
+    if (rare > 0) step(`희귀 비약 확률 +${fmtP(rare)}%p (분쇄 ${fmtP(rareG)} + 토트의 비약 ${fmtP(tote)})`, () => { const mv = Math.min(g[0], rare); g[0] -= mv; g[2] += mv; return {}; });
+    const up = lf.grade + dx.grade + T.refine, u1 = Math.min(0.9, up / 100);
+    if (u1 > 0) step(`숙련도 ${fmtP(lf.grade)} + 도감 ${fmtP(dx.grade)} + 정제 ${fmtP(T.refine)} (등급 상승 ${fmtP(u1 * 100)}%)`, () => { g = upGrade(g, u1); return {}; });
+    const sage = skillOk ? T.sage / 100 * uptime : 0;
     if (sage > 0) step(`현자의 돌 (등급 상승 ${fmtP(sage * 100)}%)`, () => { g = upGrade(g, sage); return {}; });
+    dbl = T.bless * Math.max(1, T.count || 1);
+    save = clampN(lf.save + dx.save, 0, 100);
+    rows.push({ label: `막자 +${tool}강 (토트의 축복)`, d: [0, 0, 0], dbl, sv: 0, fl: 0 });
+    rows.push({ label: `숙련도 Lv.${fmtP(lvl)} ${fmtP(lf.save)} + 도감 ${fmtP(dx.save)} (재료 손실 방지)`, d: [0, 0, 0], dbl: 0, sv: save, fl: 0 });
+    Object.assign(fx, { gradeUp: lf.grade + dx.grade, gradeLv: lf.grade, refine: T.refine, saveLv: lf.save, timeLv: lf.time, timeGrind: timeG, time: lf.time + timeG, rare, rareG, tote, bless: dbl, sage });
   }
-  rows.push({ label: `숙련도 Lv.${fmtP(lvl)}${cook ? '' : ' · 도감'} (재료 손실 방지)`, d: [0, 0, 0], dbl: 0, sv: cook ? lvSave : save, fl: 0 });
   let p = cond(g, f);
   if (!S.useGrades) p = [100, 0, 0];
   const work = sp.workOn !== false ? workOf(lvl) : 1;
-  if (tool >= 5) notes.push(`기술 가동률 ${fmtP(uptime * 100)}%${sp.uptime >= 0 ? ' (직접 입력)' : ` (지속 ${dur}초 ÷ 재사용 ${dur + 300}초)`}`);
+  if (tool >= 5) notes.push(sp.skillOn === false ? '기술 사용 안 함으로 계산' : `기술 가동률 ${fmtP(uptime * 100)}%${sp.uptime >= 0 ? ' (직접 입력)' : ` (지속 ${dur}초 ÷ 재사용 ${reuse}초)`}`);
   notes.push(`${stageOf(lvl)}차 · 한 작업당 ${workOf(lvl)}개 산출${sp.workOn !== false ? '을 반영했어요' : ' (반영 끔)'}`);
   const cl = v => Math.max(0, Math.min(100, v));
-  return { p, dbl: cl(dbl), save: cl(save), fail: cl(f), work, stage: stageOf(lvl), uptime, rows, notes, model: { placeholder: false } };
+  return { p, dbl: cl(dbl), save: cl(save), fail: cl(f), work, stage: stageOf(lvl), uptime, rows, notes, fx, model: { placeholder: false } };
 }
 
 /* ===== 시세 이력 · 예측 ===== */
@@ -2500,7 +2627,7 @@ function ago(ms) {
 
 function renderSpec() {
   const M = cur(), pr = specProbs(M), L = SPEC_LABEL[S.mode], sp = M.spec;
-  const W = SPEC_DATA[S.mode], dexMax = sp.dexMax > 0 ? sp.dexMax : W.dexTotal, dexPct = Math.min(100, sp.dexHave / dexMax * 100);
+  const dexPct = pr.fx.dexTot ? pr.fx.dexN / pr.fx.dexTot * 100 : 0;
   const bar = S.useGrades
     ? `<div class="pbar">${GRADES.map((g, i) => `<div style="width:${pr.p[i]}%;background:${g.c}">${pr.p[i] >= 20 ? g.name + ' ' + fmtP(pr.p[i]) + '%' : pr.p[i] >= 8 ? fmtP(pr.p[i]) + '%' : ''}</div>`).join('')}</div>` : '';
   const cell = d => Math.abs(d) < 0.05 ? '<td>－</td>' : `<td class="${d > 0 ? 'pl' : 'm'}">${d > 0 ? '+' : '−'}${fmtP(Math.abs(d))}</td>`;
@@ -2515,7 +2642,7 @@ function renderSpec() {
       <div class="sts">
         <div class="st"><span>${L.tool}</span><b>+${fmtP(sp.tool)}강</b></div>
         <div class="st"><span>${L.level}</span><b>Lv.${fmtP(sp.level)}</b><small>${pr.stage}차 · 작업당 ${workOf(sp.level)}개</small></div>
-        <div class="st"><span>${L.dex}</span><b>${fmtP(sp.dexHave)}/${fmtP(dexMax)}</b><small>${Math.round(dexPct)}%</small></div>
+        <div class="st"><span>${L.dex}</span><b>${pr.fx.dexN}/${pr.fx.dexTot}</b><small>${Math.round(dexPct)}%</small></div>
       </div>
       <div>${bar}
         <div class="pr-meta"><span><b>2개 생산</b> 확률 <b>${fmtP(pr.dbl)}%</b></span><span>평균 생산량 <b>${(pr.work * (1 + pr.dbl / 100)).toFixed(2)}배</b></span>${S.mode === 'cook' ? `<span>제작 성공 <b>${fmtP(100 - pr.fail)}%</b></span>` : ''}<span>재료 미소모 <b>${fmtP(pr.save)}%</b></span></div>
@@ -3866,6 +3993,174 @@ function alInit() {
   ['pointerdown', 'keydown'].forEach(ev => addEventListener(ev, () => { if (AL.on && (!alCtx || alCtx.state !== 'running')) alAudio(); }, { passive: true }));
   setInterval(alTick, 1000);
 }
+/* ===== 스펙 편집 창 (요리사 · 연금술사) =====
+ 체크 · 수치는 이 브라우저에만 저장돼요 (시트와 무관). 표의 수치는 모두 직접 고칠 수 있어요. */
+const fp = v => String(Number(Number(v).toFixed(2)));
+const sI = (k, v, extra = '') => `<input type="number" step="any" inputmode="decimal" data-role="spec" data-k="${k}" value="${v}" ${extra}>`;
+const dI = (path, v, w) => `<input class="spti" type="number" step="any" inputmode="decimal" data-role="dat" data-p="${path}" value="${v}"${w ? ` style="width:${Math.max(w,64)+10}px"` : ''}>`;
+const CHK = '<svg viewBox="0 0 24 24" class="ic"><path d="M20 6 9 17l-5-5"/></svg>';
+const spChk = (k, on, label, right, tip) => `<label class="spk${on ? ' on' : ''}" ${tip ? `data-tip="${esc(tip)}" tabindex="0"` : ''}><input type="checkbox" data-role="spec" data-k="${k}" ${on ? 'checked' : ''}><i class="cb">${CHK}</i><span>${label}</span>${right ? `<em class="r">${right}</em>` : ''}</label>`;
+const spBaseHTML = () => `<details class="fmt" id="modelBox"><summary>기본 등급 확률</summary>
+  <p style="margin-top:8px">숙련도에 따라 달라지는 기본 확률이에요. 아래 효과는 이 값 위에 더해져요. 비우면 기본값을 써요.</p>
+  <div class="two"><div><label class="f">일반 %</label><input type="number" min="0" step="any" inputmode="decimal" data-role="specbase" data-k="b0"></div>
+    <div><label class="f">고급 %</label><input type="number" min="0" step="any" inputmode="decimal" data-role="specbase" data-k="b1"></div></div>
+  <div class="two"><div><label class="f">희귀 %</label><input type="number" min="0" step="any" inputmode="decimal" data-role="specbase" data-k="b2"></div>
+    <div><label class="f">${S.mode === 'cook' ? '실패(탄 요리) %' : '실패 %'}</label><input type="number" min="0" step="any" inputmode="decimal" data-role="specbase" data-k="bf"></div></div>
+  <button class="btn" data-action="baseReset" type="button" style="margin-top:8px">기본값으로 되돌리기</button></details>`;
+
+function spDexCards(M, D, mode) {
+  const on = M.spec.dexOn || {};
+  return D.dex.map((row, ri) => {
+    const name = row[0], kind = mode === 'alch' ? row[1] : 'g', vals = mode === 'alch' ? row[2] : row[1], ck = on[name] || [0, 0, 0];
+    const lab = kind === 'l' ? '재료 손실 방지' : '등급 상승';
+    const need = [30, 80, 200];
+    const tip = `${name}\n최대 수집량 200개\n` + vals.map((v, i) => `Lv.${i + 1} ${need[i]}개 · ${lab} +${fp(v)}%p`).join('\n');
+    const lv = vals.map((v, i) => `<label class="lv${ck[i] ? ' on' : ''}" data-tip="${esc(`${name} Lv.${i + 1}\n필요 수집량 ${need[i]}개\n${lab} +${fp(v)}%p`)}" tabindex="0"><input type="checkbox" data-role="dexchk" data-n="${esc(name)}" data-i="${i}" ${ck[i] ? 'checked' : ''}><i class="cb">${CHK}</i>Lv.${i + 1}<em>+${fp(v)}%p</em></label>`).join('');
+    return `<div class="pc" data-name="${esc(name)}" data-tip="${esc(tip)}" tabindex="0"><div class="pn">${esc(name)}${mode === 'alch' ? `<small>${lab}</small>` : ''}</div><div class="pg">수집 목표 30 / 80 / 200개</div><div class="spl">${lv}</div></div>`;
+  }).join('');
+}
+function spDexSec(M, D, mode, title) {
+  return `<div class="spc"><h2>${title}</h2>
+    <div class="stats" id="spDexStat"></div><div class="bar"><i id="spDexBar"></i></div>
+    <div class="tools"><div class="spin"><svg viewBox="0 0 24 24" class="ic"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="spDexQ" placeholder="${mode === 'alch' ? '비약' : '요리'} 이름 검색" autocomplete="off"></div>
+      <div class="spseg" id="spDexF"><button type="button" class="a" data-f="all">전체</button><button type="button" data-f="done">달성</button><button type="button" data-f="todo">미달성</button></div>
+      <button class="btn sm" type="button" data-sp="dexreset">도감 초기화</button></div>
+    <div class="pgrid" id="spDexGrid">${spDexCards(M, D, mode)}</div></div>`;
+}
+function spTierTable(D) {
+  const cols = [['refine', '정제', 56], ['bless', '축복 %', 56], ['count', '개수', 44], ['front', '개척지 %', 56], ['conc', '농축 %', 52], ['sage', '현자의 돌 %', 60], ['dur', '지속(초)', 56], ['reuse', '재사용(초)', 62], ['amp', '증폭(분)', 50], ['ampDur', '증폭 지속', 56], ['ampReuse', '증폭 재사용', 62], ['mana', '마나', 46]];
+  return `<div class="tscroll"><table class="et"><thead><tr><th>강화</th>${cols.map(c => `<th>${c[1]}</th>`).join('')}</tr></thead><tbody>${D.tool.slice(1).map((t, i) => `<tr data-ti="${i + 1}"><td>+${i + 1}</td>${cols.map(c => `<td>${dI(`tool.${i + 1}.${c[0]}`, t[c[0]], c[2])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+const spFold = (title, note, body) => `<details class="spc fold"><summary><span>${title}</span><small>${note}</small></summary><div class="foldbody">${body}</div></details>`;
+const spSub = (title, body) => `<div class="subsec"><h3>${title}</h3>${body}</div>`;
+const spUptime = sp => `<div class="two" style="margin-top:8px"><div><label class="f">기술 가동률 % <small>(비우면 자동: 지속 ÷ 재사용)</small></label><input type="number" min="0" max="100" step="any" inputmode="decimal" data-role="spec" data-k="uptime" id="spUptime" value="${sp.uptime >= 0 ? sp.uptime : ''}"></div><div></div></div>`;
+const spTipSkill = '켜면 기술을 쿨타임마다 계속 쓴다고 계산해요\n끄면 쓰지 않는다고 계산해요';
+const spWork = sp => `<label class="check" style="margin-top:12px"><input type="checkbox" data-role="spec" data-k="workOn" ${sp.workOn !== false ? 'checked' : ''}> 숙련도 차수별 '한 작업당 산출 개수'(1·3·4·6개)를 계산에 반영</label>`;
+function spAlchHTML(M, sp, D) {
+  const grind = `<div class="tscroll"><table class="et"><thead><tr><th>가루</th><th>희귀 확률 %p</th><th>시간 감소 %</th></tr></thead><tbody>
+    <tr><td>심재 가루</td><td>${dI('grind.sim.rare', D.grind.sim.rare, 64)}</td><td>${dI('grind.sim.time', D.grind.sim.time, 64)}</td></tr>
+    <tr><td>광물 가루</td><td>${dI('grind.min.rare', D.grind.min.rare, 64)}</td><td>${dI('grind.min.time', D.grind.min.time, 64)}</td></tr></tbody></table></div>`;
+  const lv = `<div class="tscroll"><table class="et" id="spLvT"><thead><tr><th>구간</th><th>시간 감소 %</th><th>등급 상승 %</th><th>재료 손실 방지 %</th></tr></thead><tbody>
+    ${D.lv.map((r, i) => `<tr data-li="${i}"><td>Lv.${r[0]}${r[1] > r[0] ? '~' + r[1] : ''}<small></small></td><td>${dI(`lv.${i}.2`, r[2], 64)}</td><td>${dI(`lv.${i}.3`, r[3], 64)}</td><td>${dI(`lv.${i}.4`, r[4], 64)}</td></tr>`).join('')}
+    <tr class="sptot" id="spLvTot"></tr></tbody></table></div><p class="note" id="spLvNote"></p><p class="note">구간을 다 채우면 구간 효과가 전부 적용돼요. 구간 안은 레벨 비율만큼 적용돼요.</p>`;
+  const dex = `<div class="tscroll"><table class="et"><thead><tr><th>비약</th><th>효과</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th></tr></thead><tbody>${D.dex.map((r, i) => `<tr><td>${esc(r[0])}</td><td>${r[1] === 'l' ? '재료 손실 방지' : '등급 상승'}</td>${[0, 1, 2].map(j => `<td>${dI(`dex.${i}.2.${j}`, r[2][j], 64)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const tool = `<div class="kvs" id="spToolKv"></div><details class="fmt"><summary>강화 단계별 전체 표</summary>${spTierTable(D)}</details>`;
+  const tote = `<div style="max-width:320px"><label class="f">토트의 비약 희귀 비약 확률 증가 (%p)</label>${sI('tote', sp.tote, 'min="0"')}</div><p class="note">내 스펙에 맞게 직접 고쳐 쓰는 값이에요. 숙련도나 막자 강화로 바뀌지 않아요.</p>`;
+  return `<h2 id="spTitle">연금술사 · 내 스펙</h2><p class="sp-sub">입력한 값은 이 브라우저에만 저장돼요. 바꾸면 순위와 수익에 바로 반영돼요.</p>
+  <div class="spc sum"><h2>최종 적용 수치 <small id="spSumNote"></small></h2><div class="kvs" id="spSum"></div></div>
+  <div class="spc"><h2>기본 스펙</h2>
+    <div class="two"><div><label class="f">막자 강화 (0~20강)</label>${sI('tool', sp.tool, 'min="0" max="20" step="1"')}</div><div><label class="f">연금술사 숙련도 (1~60)</label>${sI('level', sp.level, 'min="0" max="60" step="1"')}</div></div>
+    <div class="grp"><div class="gl">분쇄 <small>비약을 대기열에 넣는 시점의 선택 기준</small></div>
+      ${spChk('grindSim', sp.grindSim, '심재 가루 사용', `희귀 +${fp(D.grind.sim.rare)}%p · 시간 −${fp(D.grind.sim.time)}%`, `심재 가루\n희귀 비약 확률 +${fp(D.grind.sim.rare)}%p\n비약 제작 시간 ${fp(D.grind.sim.time)}% 감소`)}
+      ${spChk('grindMin', sp.grindMin, '광물 가루 사용', `희귀 +${fp(D.grind.min.rare)}%p · 시간 −${fp(D.grind.min.time)}%`, `광물 가루\n희귀 비약 확률 +${fp(D.grind.min.rare)}%p\n비약 제작 시간 ${fp(D.grind.min.time)}% 감소`)}</div>
+    ${spWork(sp)}
+    <div class="grp"><div class="gl">사용 여부 <small>켜면 상시 사용, 끄면 사용 안 함으로 계산</small></div>
+      ${spChk('skillOn', sp.skillOn !== false, '연금술사 기술 사용', '+5강부터', spTipSkill)}
+      ${spChk('toteOn', sp.toteOn !== false, '토트의 비약 사용', '희귀 비약 확률 증가', '켜면 비약을 상시 먹는다고 계산해요\n끄면 먹지 않는다고 계산해요')}
+      ${spUptime(sp)}</div></div>
+  ${spDexSec(M, D, 'alch', '비약 도감')}
+  ${spFold('수치 설정', '밸런스가 바뀔 때만 고치면 돼요',
+    spSub('분쇄 가루 효과', grind) + spSub('숙련도 효과', lv) + spSub('비약 도감 보너스 (%p)', dex) + spSub('막자 강화 효과', tool) + spSub('토트의 비약', tote) + spSub('기본 등급 확률', spBaseHTML()) +
+    '<button class="btn sm" type="button" data-sp="datreset" style="margin-top:12px">수치를 모두 기본값으로 되돌리기</button>')}
+  <div class="modal-foot"><button class="btn primary" data-action="closeModal" type="button">닫기</button></div>`;
+}
+function spCookHTML(M, sp, D) {
+  const cols = [['dbl', '2개 생산 %', 64], ['skip', '재료 생략 %', 64], ['dur', '지속(초)', 60]];
+  const dexT = `<div class="tscroll"><table class="et"><thead><tr><th>요리</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th></tr></thead><tbody>${D.dex.map((r, i) => `<tr><td>${esc(r[0])}</td>${[0, 1, 2].map(j => `<td>${dI(`dex.${i}.1.${j}`, r[1][j], 64)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const toolT = `<div class="tscroll"><table class="et"><thead><tr><th>강화</th>${cols.map(c => `<th>${c[1]}</th>`).join('')}</tr></thead><tbody>${D.tool.slice(1).map((t, i) => `<tr><td>+${i + 1}</td>${cols.map(c => `<td>${dI(`tool.${i + 1}.${c[0]}`, t[c[0]], c[2])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const pot = `<div class="tscroll"><table class="et"><thead><tr><th>단계</th><th>재료 손실 방지 %p</th></tr></thead><tbody>${[0, 1, 2].map(i => `<tr><td>${i + 1}단계</td><td>${dI(`potion.${i}`, D.potion[i], 64)}</td></tr>`).join('')}</tbody></table></div>`;
+  return `<h2 id="spTitle">요리사 · 내 스펙</h2><p class="sp-sub">입력한 값은 이 브라우저에만 저장돼요. 바꾸면 순위와 수익에 바로 반영돼요.</p>
+  <div class="spc sum"><h2>최종 적용 수치 <small id="spSumNote"></small></h2><div class="kvs" id="spSum"></div></div>
+  <div class="spc"><h2>기본 스펙</h2>
+    <div class="two"><div><label class="f">식칼 강화 (0~20강)</label>${sI('tool', sp.tool, 'min="0" max="20" step="1"')}</div><div><label class="f">요리사 숙련도 (1~60)</label>${sI('level', sp.level, 'min="0" max="60" step="1"')}</div></div>
+    <div class="two" style="margin-top:12px"><div><label class="f">손질한 재료 종류 (0~3)</label>${sI('trim', sp.trim || '', 'min="0" max="3" step="1"')}</div><div></div></div>
+    ${spWork(sp)}
+    <div class="grp"><div class="gl">사용 여부 <small>켜면 상시 사용, 끄면 사용 안 함으로 계산</small></div>
+      ${spChk('skillOn', sp.skillOn !== false, '식칼 기술 사용', '+5강부터', spTipSkill)}
+      <div class="potrow">${spChk('potionOn', sp.potionOn === true, '미식의 비약 사용', '재료 손실 방지', '켜면 비약을 상시 먹는다고 계산해요\n끄면 먹지 않는다고 계산해요')}
+        <select data-role="spec" data-k="potionLv" aria-label="미식의 비약 단계">${[1, 2, 3].map(n => `<option value="${n}" ${(sp.potionLv || 1) === n ? 'selected' : ''}>${n}단계 +${fp(D.potion[n - 1])}%p</option>`).join('')}</select></div>
+      ${spUptime(sp)}</div></div>
+  ${spDexSec(M, D, 'cook', '요리사 도감')}
+  ${spFold('수치 설정', '밸런스가 바뀔 때만 고치면 돼요',
+    spSub('도감 보너스 (요리별 · %p)', dexT) + spSub('식칼 강화 단계별 표', toolT) + spSub('미식의 비약', pot) + spSub('기본 등급 확률', spBaseHTML()) +
+    '<button class="btn sm" type="button" data-sp="datreset" style="margin-top:12px">수치를 모두 기본값으로 되돌리기</button>')}
+  <div class="modal-foot"><button class="btn primary" data-action="closeModal" type="button">닫기</button></div>`;
+}
+const kv = (l, v, s, hl) => `<div class="sk${hl ? ' hl' : ''}"><span>${l}</span><b>${v}</b>${s ? `<small>${s}</small>` : ''}</div>`;
+function specBuild() {
+  const M = cur(), sp = M.spec, D = specD(M), box = $('#specModal .modal-box');
+  box.classList.add('wide');
+  box.innerHTML = S.mode === 'alch' ? spAlchHTML(M, sp, D) : spCookHTML(M, sp, D);
+  const bs = sp.base || SPEC_DATA[S.mode].base, W = SPEC_DATA[S.mode];
+  $$('#specModal [data-role="specbase"]').forEach(i => { const k = i.dataset.k; i.value = sp.base ? (k === 'bf' ? bs.fail : bs.p[+k[1]]) : ''; i.placeholder = String(k === 'bf' ? W.base.fail : W.base.p[+k[1]]); });
+  $('#modelBox').open = !!sp.base;
+  specLive(); specDexFilter();
+}
+function specLive() {
+  if (!$('#specModal') || !$('#spSum')) return;
+  const M = cur(), sp = M.spec, pr = specProbs(M), fx = pr.fx, cook = S.mode === 'cook', D = specD(M);
+  const dp = fx.dexTot ? fx.dexN / fx.dexTot * 100 : 0;
+  $('#spDexStat').innerHTML = `<span>달성 <b>${fx.dexN} / ${fx.dexTot}</b></span><span>등급 상승 <b>+${fp(fx.dexGrade)}%p</b></span>${cook ? '' : `<span>재료 손실 방지 <b>+${fp(fx.dexSave)}%p</b></span>`}`;
+  $('#spDexBar').style.width = dp + '%';
+  $$('#spDexGrid .lv').forEach(l => l.classList.toggle('on', l.querySelector('input').checked));
+  $$('#specModal label.spk').forEach(l => l.classList.toggle('on', l.querySelector('input').checked));
+  const up = $('#spUptime'); if (up) up.placeholder = fp(fx.uptimeAuto * 100);
+  const ps = $('#specModal select[data-k=potionLv]'); if (ps) [...ps.options].forEach((o, i) => { o.textContent = `${i + 1}단계 +${fp(D.potion[i])}%p`; });
+  if (cook) {
+    $('#spSumNote').textContent = fx.skillOn ? '기술 사용 켬' : '기술 사용 끔';
+    $('#spSum').innerHTML = kv('도감 등급 상승', `+${fp(fx.dexGrade)}%p`, `${fx.dexN}/${fx.dexTot} 달성`, 1) + kv('재료 손실 방지', fp(pr.save) + '%', `숙련도 ${fp(fx.saveLv)}${fx.potion ? ' · 비약 ' + fp(fx.potion) : ''} · 재료 생략 ${fp(fx.skip)}`) + kv('2개 생산', fp(pr.dbl) + '%', '데메테르의 축복') +
+      kv('기술 가동률', fp(fx.uptime * 100) + '%', fx.skillOn ? (fx.skillOk ? '쿨타임마다 사용' : '+5강부터 사용') : '사용 안 함') + kv('미식의 비약', M.spec.potionOn ? `${fx.potLv}단계 +${fp(fx.potion)}%p` : '사용 안 함') +
+      GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.p[i]) + '%')).join('');
+    return;
+  }
+  const lf = lvFx(D.lv, sp.level);
+  const sg = $('#spGrindNote'); if (sg) sg.textContent = `지금 선택: 희귀 비약 확률 +${fp(fx.rareG)}%p, 제작 시간 감소 ${fp(fx.timeGrind)}%`;
+  $$('#spLvT tbody tr[data-li]').forEach((tr, i) => {
+    const [a, b] = D.lv[i], lvl = Math.round(sp.level), f = Math.max(0, Math.min(1, (lvl - a + 1) / (b - a + 1)));
+    tr.classList.toggle('cur', f > 0 && f < 1); tr.querySelector('small').textContent = f > 0 && f < 1 ? ` · ${lvl - a + 1}/${b - a + 1} 진행` : f >= 1 ? ' · 완료' : '';
+  });
+  $('#spLvNote').textContent = `현재 Lv.${fp(sp.level)} 기준 합계가 위 표 아래에 표시돼요`;
+  $('#spLvTot').innerHTML = `<td>지금까지 합계</td><td>${fp(lf.time)}%</td><td>${fp(lf.grade)}%</td><td>${fp(lf.save)}%</td>`;
+  const T = fx.T, t5 = fx.tool >= 5;
+  $('#spToolKv').innerHTML = kv('정제', fp(T.refine)) + kv('토트의 축복', fp(T.bless) + '%', `발동 시 같은 비약 ${T.count}병 추가`) + kv('개척지 희귀 확률', fp(T.front) + '%') + (t5 ? kv('농축', fp(T.conc) + '%') : '') +
+    (t5 ? kv('현자의 돌', fp(T.sage) + '%', `${T.dur}초 지속 · ${T.reuse}초 재사용`) + kv('증폭', `+${fp(T.amp)}분`, `${T.ampDur}초 지속 · ${T.ampReuse}초 재사용 · 마나 ${T.mana}`) : '');
+  $('#spSumNote').textContent = t5 ? (fx.skillOn ? '기술 사용 켬' : '기술 사용 끔') : '';
+  $('#spSum').innerHTML = kv('희귀 비약 확률 추가', `+${fp(fx.rare)}%p`, `분쇄 ${fp(fx.rareG)} + 토트의 비약 ${fp(fx.tote)}${sp.toteOn === false ? ' (사용 안 함)' : ''}`, 1) + kv('비약 제작 시간 감소', `−${fp(fx.time)}%`, `숙련도 ${fp(fx.timeLv)} + 분쇄 ${fp(fx.timeGrind)}`) +
+    kv('결과물 등급 상승 확률', `+${fp(fx.gradeUp)}%p`, `숙련도 ${fp(fx.gradeLv)} + 도감 ${fp(fx.dexGrade)}${fx.refine ? ' · 정제 ' + fp(fx.refine) + ' 별도 적용' : ''}`) + kv('재료 손실 방지', fp(pr.save) + '%', `숙련도 ${fp(fx.saveLv)} + 도감 ${fp(fx.dexSave)}`) +
+    kv('정제', fp(T.refine)) + kv('토트의 축복', fp(T.bless) + '%', `추가 ${T.count}병 · 주문 잉크 제외`) + kv('농축', t5 ? fp(T.conc) + '%' : '+5강부터') +
+    kv('현자의 돌', t5 ? fp(T.sage) + '%' : '+5강부터', t5 ? `${T.dur}초 지속 · ${T.reuse}초 재사용` + (fx.skillOn ? ` · 가동 ${fp(fx.uptime * 100)}%` : '') : '') + kv('증폭', t5 ? `+${fp(T.amp)}분` : '+5강부터', t5 ? `${T.ampDur}초 지속 · ${T.ampReuse}초 재사용 · 마나 ${T.mana}` : '') +
+    GRADES.map((g, i) => kv(g.name + ' 확률', fp(pr.p[i]) + '%')).join('');
+}
+function specDexFilter() {
+  const q = (($('#spDexQ') || {}).value || '').trim().toLowerCase(), f = (($('#spDexF .a') || {}).dataset || {}).f || 'all', on = cur().spec.dexOn || {};
+  $$('#spDexGrid .pc').forEach(c => {
+    const ck = on[c.dataset.name] || [0, 0, 0], any = ck.some(x => x), all = ck.every(x => x);
+    c.hidden = !((!q || c.dataset.name.toLowerCase().includes(q)) && (f === 'all' || (f === 'done' && any) || (f === 'todo' && !all)));
+  });
+}
+function datSet(path, val) {
+  const M = cur(), sp = M.spec; if (!sp.dat) sp.dat = clone(SPEC_DEF[S.mode]);
+  const ks = path.split('.'); let o = sp.dat; for (let i = 0; i < ks.length - 1; i++) o = o[ks[i]]; o[ks[ks.length - 1]] = val;
+}
+document.addEventListener('change', e => {
+  const t = e.target; if (!t.closest || !t.closest('#specModal')) return;
+  const role = t.dataset && t.dataset.role, M = cur(), sp = M.spec;
+  if (role === 'dexchk') { const n = t.dataset.n; (sp.dexOn = sp.dexOn || {})[n] = (sp.dexOn[n] || [0, 0, 0]).slice(); sp.dexOn[n][+t.dataset.i] = t.checked ? 1 : 0; save(); renderAll(); specLive(); specDexFilter(); }
+});
+document.addEventListener('input', e => {
+  const t = e.target; if (!t.closest || !t.closest('#specModal')) return;
+  const role = t.dataset && t.dataset.role;
+  if (role === 'dat') { const v = t.value === '' ? 0 : num(t.value); datSet(t.dataset.p, v); save(); renderAll(); specLive(); }
+  else if (t.id === 'spDexQ') specDexFilter();
+  else setTimeout(() => { specLive(); }, 0);
+});
+document.addEventListener('click', e => {
+  const t = e.target.closest && e.target.closest('#specModal [data-sp], #specModal #spDexF button'); if (!t) return;
+  const M = cur(), sp = M.spec;
+  if (t.parentElement && t.parentElement.id === 'spDexF') { $$('#spDexF button').forEach(b => b.classList.toggle('a', b === t)); specDexFilter(); return; }
+  if (t.dataset.sp === 'dexreset') { if (confirm('도감 체크를 모두 해제할까요? (다른 스펙은 그대로예요)')) { sp.dexOn = {}; save(); renderAll(); specBuild(); } }
+  else if (t.dataset.sp === 'datreset') { if (confirm('표의 수치를 모두 기본값으로 되돌릴까요?')) { sp.dat = null; save(); renderAll(); specBuild(); } }
+});
 
 /* ===== 모달 ===== */
 const openModal = id => $('#' + id).classList.add('open');
@@ -4192,26 +4487,7 @@ function loadPreset() {
 }
 
 /* ===== 스펙 · 설정 ===== */
-function openSpec() {
-  const M = cur(), L = SPEC_LABEL[S.mode];
-  $('#spTitle').textContent = `${MODES[S.mode]} · 내 스펙`;
-  const W = SPEC_DATA[S.mode], sp = M.spec;
-  $('#spLtool').textContent = L.tool + ' (0~20강)';
-  $('#spLlevel').textContent = L.level + ' (1~60)';
-  $('#spLtrim').textContent = W.trimLabel;
-  $('#spDexHint').textContent = `(전체 ${W.dexTotal} = 아이템 수 × 3단계)`;
-  $('#spDexMax').placeholder = String(W.dexTotal);
-  $$('#specModal [data-role="spec"]').forEach(i => {
-    const k = i.dataset.k;
-    if (i.type === 'checkbox') i.checked = sp[k] !== false;
-    else if (k === 'uptime') i.value = sp.uptime >= 0 ? sp.uptime : '';
-    else i.value = sp[k] || '';
-  });
-  const bs = sp.base || W.base;
-  $$('#specModal [data-role="specbase"]').forEach(i => { const k = i.dataset.k; i.value = sp.base ? (k === 'bf' ? bs.fail : bs.p[+k[1]]) : ''; i.placeholder = String(k === 'bf' ? W.base.fail : W.base.p[+k[1]]); });
-  $('#modelBox').open = !!sp.base;
-  openModal('specModal');
-}
+function openSpec() { specBuild(); openModal('specModal'); }
 function openSettings() {
   ['cook', 'alch'].forEach(m => {
     $(m === 'cook' ? '#stgCook' : '#stgAlch').innerHTML = `<b>${MODES[m]}</b><div class="stg-t"><span></span>${GRADES.map(g => `<span>${g.name}</span>`).join('')}` +
